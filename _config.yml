@@ -1,5 +1,9 @@
 # The Site Configuration
 
+#깃허브블로그 글이 안올라오면 해결책은 이것!
+futrue: true
+published: true
+
 # import하는 테마 명, 바꾸지 말 것!
 theme: jekyll-theme-chirpy
 
