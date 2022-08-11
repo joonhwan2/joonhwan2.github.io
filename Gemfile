@@ -20,10 +20,10 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 gem "webrick", "~> 1.7"
 
 
-#--------------------피드백 받음 이거 냥냥 깃허브만 언급
+#--------------------피드백 받음--------
 gem "jekyll"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "jekyll-theme-chirpy", "~> 3.3", ">= 3.3.0"
+gem "jekyll-theme-chirpy"
 
 gem 'jekyll-sitemap'
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
