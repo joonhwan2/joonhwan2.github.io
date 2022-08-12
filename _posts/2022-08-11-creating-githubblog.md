@@ -25,8 +25,12 @@ date: 2022-08-12
 글을 클릭하면 링크로 이동, 알맞은 비트에 맞게 다운받으면 됨, 필자는 64비트라 그걸 다운받았음.
 
 [VScode 다운로드](https://code.visualstudio.com/download)
+<br>
+<br>
 [깃 다운로드](https://git-scm.com/downloads)
+<br>
+<br>
 [깃허브 다운로드](https://desktop.github.com/)
 
-
+완료 후 
 
