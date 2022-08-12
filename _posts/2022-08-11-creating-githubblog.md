@@ -3,7 +3,7 @@ title:  "깃허브 블로그 만드는 법"
 excerpt: "1"
 
 categories:
-  - [github blog, github] 
+  - github blog 
 tags:
   - [blog, jekyll, github, git]
 
