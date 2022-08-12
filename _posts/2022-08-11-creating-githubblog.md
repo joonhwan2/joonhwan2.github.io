@@ -35,7 +35,7 @@ date: 2022-08-12
 ---
 # 1 깃허브로 입장하라
 ---
-![Desktop View](\assets\img\2022-08-12\1.jpg){: width="90%" }
+![Desktop View](/assets/img/2022-08-12/1.PNG){: width="90%" }
 
 **reposistory**를 눌러 **new**를 누른 후 이 화면이 뜰텐데
 
