@@ -75,6 +75,35 @@ date: 2022-08-12
 <br>
 
 ![Desktop View](/assets/img/2022-08-12/4.PNG)
+<br>
 
+자, 여기서 이제 깃허브 홈페이지로 돌아가자
+<br>
+<br>
 
+![Desktop View](/assets/img/2022-08-12/5.PNG)
 
+<br>
+<br>
+
+우측에 보이는 코드를 눌러 거기 나오는 주소를 복사한 뒤 github desktop으로 돌아가 입력하고 clone(다운로드) 하면\
+어떤 코드가 뜨면서 완료됬다고 할 것이다.\
+
+여기까지 하였으면 이제 vs코드로 index.html 파일을 만들어 깃허브이 아까 reposistory한 곳에 올려보자 내용은 이렇게
+```html
+<html>
+	<body>
+		오 이것이 바로 나의 홈페이지로군!
+	</body>
+</html>
+```
+
+<br>
+<br>
+
+![Desktop View](/assets/img/2022-08-12/6.PNG)
+
+<br>
+
+이제 저 빨간 부분을 복사하여 주소창에 쳐보자 그러면 변화가 나타날 것이다!.\
+이번 글은 이것으로 마무리를 하려고 한다.
