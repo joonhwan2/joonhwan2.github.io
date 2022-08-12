@@ -3,7 +3,7 @@ title:  "깃허브 블로그 만드는 법"
 excerpt: "1"
 
 categories:
-  - github blog jekyll
+  - [github blog, github] 
 tags:
   - [blog, jekyll, github, git]
 
@@ -35,6 +35,6 @@ date: 2022-08-12
 ---
 # 1 
 ---
-![Desktop View](\assets\img\2022-08-12\1.PNG){: width="90%" }
+![Desktop View](\assets\img\2022-08-12\1.jpg){: width="90%" }
 
 
