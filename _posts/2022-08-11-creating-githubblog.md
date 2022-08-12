@@ -32,5 +32,9 @@ date: 2022-08-12
 <br>
 [깃허브 다운로드](https://desktop.github.com/)
 
-완료 후 
+---
+# 1 
+---
+![사진](\assets\img\2022-08-12/1.PNG){: width="90%" }
+
 
