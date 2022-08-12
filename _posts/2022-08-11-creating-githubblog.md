@@ -22,8 +22,10 @@ date: 2022-08-12
 
 # 필요한 것
 시작하기 앞서 vscode, git,  github desktop 이 3개중 하나라도 없으시다면 설치를 하는걸 권장한다.
-이미지를 클릭하면 링크로 이동
+이미지와 글을 클릭하면 링크로 이동
 
 [![vscode](https://velog.velcdn.com/images/doobyeol/post/8fd3779c-1871-4096-9cfe-c705c8ac63a9/vscode.png)](https://code.visualstudio.com/download)
-[![git](https://user-images.githubusercontent.com/109264295/184294036-1de75476-51e6-4323-9ce1-a4ee6de0bccf.png)https://git-scm.com/downloads
-[![github](https://github.githubassets.com/images/modules/logos_page/Octocat.png)]https://desktop.github.com/
+[![git](https://cdn.icon-icons.com/icons2/2699/PNG/512/git_scm_logo_icon_170097.png)](https://git-scm.com/downloads)
+[깃허브 다운로드](https://desktop.github.com/)
+
+
