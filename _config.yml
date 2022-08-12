@@ -91,13 +91,10 @@ avatar: /assets/img/icon.jpg
 # boolean type, the global switch for ToC in posts.
 toc: true  # toc(Table of contents)   블로그에 포스팅 옆에서 스크롤을 따라오는 목차
                        # 사용 true   미사용 false
+provider: disqus
 disqus:        #댓글기능
   comments: true          #사용 true   미사용 false
-<<<<<<< HEAD
   shortname: joonhwan2
-=======
-  shortname: 'joonhwan2'
->>>>>>> 09424aa342cc9d05f6768b7c53e9fbef2b201b9a
   utterances:
     repo:         # <gh-username>/<repo>
     issue_term:   # < url | pathname | title | ...>
