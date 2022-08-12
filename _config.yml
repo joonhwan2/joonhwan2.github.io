@@ -1,8 +1,8 @@
 # The Site Configuration
 
 #깃허브블로그 글이 안올라오면 해결책은 이것!
-futrue: true
-published: true
+futrue: true               #  미래의 포스팅을 보이게 하는 설정
+published: true            #  publised   공개/비공개 설정
 
 # import하는 테마 명, 바꾸지 말 것!
 theme: jekyll-theme-chirpy
@@ -93,7 +93,7 @@ toc: true  # toc(Table of contents)   블로그에 포스팅 옆에서 스크롤
                        # 사용 true   미사용 false
 disqus:        #댓글기능
   comments: true          #사용 true   미사용 false
-  shortname: http://joonhwan2.github.io
+  shortname: 'http://joonhwan2.github.io'
   utterances:
     repo:         # <gh-username>/<repo>
     issue_term:   # < url | pathname | title | ...>
