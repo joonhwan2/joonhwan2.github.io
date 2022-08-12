@@ -35,6 +35,6 @@ date: 2022-08-12
 ---
 # 1 
 ---
-![사진](\assets\img\2022-08-12/1.PNG){: width="90%" }
+![Desktop View](\assets\img\2022-08-12\1.PNG){: width="90%" }
 
 
