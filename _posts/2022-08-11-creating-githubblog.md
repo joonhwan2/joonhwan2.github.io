@@ -24,18 +24,30 @@ date: 2022-08-12
 시작하기 앞서 vscode, git,  github desktop 이 3개중 하나라도 없으시다면 설치를 하는걸 권장한다.
 글을 클릭하면 링크로 이동, 알맞은 비트에 맞게 다운받으면 됨, 필자는 64비트라 그걸 다운받았음.
 
-[VScode 다운로드](https://code.visualstudio.com/download)
+[1. VScode 다운로드](https://code.visualstudio.com/download)
 <br>
 <br>
-[깃 다운로드](https://git-scm.com/downloads)
+[2. 깃 다운로드](https://git-scm.com/downloads)
 <br>
 <br>
-[깃허브 다운로드](https://desktop.github.com/)
+[3. 깃허브 다운로드](https://desktop.github.com/)
 
+<br>
+여기까지 완료했다면 15%는 따라온 것이다 아주 칭찬한다, 이제부터 본론으로 들어가겠다.
+ 
 ---
 # 1 깃허브로 입장하라
 ---
-![Desktop View](/assets/img/2022-08-12/1.PNG){: width="90%" }
+![Desktop View](/assets/img/2022-08-12/1.PNG)
 
 **reposistory**를 눌러 **new**를 누른 후 이 화면이 뜰텐데
+
+<br>
+<br>
+<br>
+<br>
+
+
+![Desktop View](/assets/img/2022-08-12/2.PNG)
+
 
