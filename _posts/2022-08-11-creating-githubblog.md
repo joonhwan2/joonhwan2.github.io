@@ -21,7 +21,10 @@ date: 2022-08-12
 <br>
 
 # 필요한 것
-git, vscode, github desktop 이 3개중 하나라도 없으시다면 설치를 하는걸 권장한다.
+vscode,  github desktop 이 3개중 하나라도 없으시다면 설치를 하는걸 권장한다.
+이미지를 클릭하면 링크로 이동
+
+[![vscode](https://velog.velcdn.com/images/doobyeol/post/8fd3779c-1871-4096-9cfe-c705c8ac63a9/vscode.png)](https://code.visualstudio.com/download)
 
 [🤖준환 취미공간](https://discord.gg/zkzk5xtm)
 
