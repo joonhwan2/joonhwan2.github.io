@@ -40,7 +40,7 @@ date: 2022-08-12
 
 
 ---
-# 1 깃허브로 들어가기
+# 1-1 깃허브로 들어가기
 ---
 ![Desktop View](/assets/img/2022-08-12/1.PNG)
 
@@ -64,7 +64,7 @@ date: 2022-08-12
 <br>
 
 ---
-# 2 github desktop으로 갑시다
+# 1-2 github desktop으로 갑시다
 ---
 ![Desktop View](/assets/img/2022-08-12/3.PNG)
 
