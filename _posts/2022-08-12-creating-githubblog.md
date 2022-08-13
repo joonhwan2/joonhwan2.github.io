@@ -122,7 +122,5 @@ date: 2022-08-12
 ---
 # 참고
 ---
-<br>
-
  'dodev'\
  [초보자를 위한 GitHub Blog 만들기 - 1](https://wlqmffl0102.github.io/posts/Making-Git-blogs-for-beginners-1/) 
