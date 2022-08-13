@@ -201,8 +201,9 @@ serer address 부분에 저거를 복사하여 주소창에 입력해보면
 `.travis.yml`\
 `_posts` 폴더 안의 파일들만\
 `.github`폴더 안에서, `workflows`폴더를 제외한 나머지\
-`.github`폴더 > `workflows`폴더에서 ci.yml 그리고  issue-pr-interceptor.yml  이 2개 삭제\
-`gemfile.lock` 
+`.github`폴더 > `workflows`폴더에서 ci.yml 그리고  `issue-pr-interceptor.yml` 그리고 `commitlint.yml` 이 3개 삭제\
+`gemfile.lock`\
+ `asset`폴더의 404.html 건드리지말고!, 바깥에 있는 404.html 제거
 <br>
 <br>
   
@@ -237,4 +238,103 @@ $bundle exec jekyll serve
 ```
 <br>
 <br>
+  
+![Desktop View](/assets/img/2022-08-13/10.PNG)
 
+<br>
+이 사단이 납니다.
+<br>
+
+---
+### 🧐자 어떻게 해결하느냐?
+---
+<br>
+우선 vs코드로 들어가서 확장(extension)에서 category:formatters yaml 검색을 하고 다운로드
+
+<br>
+<br>
+
+![Desktop View](/assets/img/2022-08-13/11.PNG)
+
+<br>
+<br>
+
+`gemfile`을 열어 수정을 하다보면 안보이던 빨간밑줄(오류)가 생겨나기 시작할 것이다.\
+이걸 다운로드 받지않은게 문제였다, 그로 인해 시간이 정말 오래걸렸다.
+
+<br>
+  
+### 이건 제가 쓴 방법입니다.
+
+<br>
+  
+<br>
+  
+`gemfile`에서 첫번째 문장인 `# frozen_string_literal: true` 이것을 없애고 3번째 문장에 있던 거를 1번째로 올려준다
+`gempec`도 지운다
+<br>
+<br>
+  
+```gemfile
+gem "webrick", "~> 1.7"
+```
+
+<br>
+이제 이 문장 밑에 이 문구를 복붙합시다, 그리고 저장
+<br>
+<br>
+  
+```  
+gem "jekyll"
+# This is the default theme for new Jekyll sites. You may change this to anything you like.
+gem "jekyll-theme-chirpy"
+
+gem 'jekyll-sitemap'
+# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
+# uncomment the line below. To upgrade, run `bundle update github-pages`.
+# gem "github-pages", group: :jekyll_plugins
+# If you have any plugins, put them here!
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.12"
+end
+```
+<br>
+<br>
+  
+이제 이걸 치면
+```bash
+$bundle exec jekyll serve 
+```
+또 로컬 주소가 생성이될텐데 아까 그거 복사해서 주소에 붙여넣으면 짜잔
+
+<br>
+<br>
+
+![Desktop View](/assets/img/2022-08-13/12.PNG)
+  
+<br>
+<br>
+
+다음글 이어서 마지막 수정 및 추가편 작성합니다ㅎ\
+여기까지 완료하는데 많은 도움을 주셨던 https://github.com/nyannyacha 선생님 감사드립니다!
+
+<br>
+ 
+<br>
+
+아래 사진을 클릭하면 제 취미공간입니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!
+
+<br>
+
+# 링크로 이동하려면 사진을 클릭
+
+[![어서오셔 ㅎ](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&usqp=CAU)](https://discord.gg/zkzk5xtm)
+
+
+---
+# 참고
+---
+ 'dodev' &nbsp;&nbsp;&nbsp;&nbsp;   [초보자를 위한 GitHub Blog 만들기 - 3](https://wlqmffl0102.github.io/posts/Making-Git-blogs-for-beginners-3/)
+
+<br>
+https://chirpy.cotes.page/posts/getting-started/
