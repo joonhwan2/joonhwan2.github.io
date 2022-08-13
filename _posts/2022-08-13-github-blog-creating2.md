@@ -338,4 +338,5 @@ $bundle exec jekyll serve
  'dodev' &nbsp;&nbsp;&nbsp;&nbsp;   [초보자를 위한 GitHub Blog 만들기 - 3](https://wlqmffl0102.github.io/posts/Making-Git-blogs-for-beginners-3/)
 
 <br>
-https://chirpy.cotes.page/posts/getting-started/
+
+<https://chirpy.cotes.page/posts/getting-started>
