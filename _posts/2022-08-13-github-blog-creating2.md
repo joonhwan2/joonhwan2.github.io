@@ -22,7 +22,8 @@ date: 2022-08-13
 [지킬테마 다운로드](https://github.com/topics/jekyll-theme)\
 <br>
 
-저는 jekyll-chirpy-theme 을 사용하였습니다. [👉저가 사용한 테마를 다운받으시려면 이곳을 클릭 해주세요](https://github.com/cotes2020?tab=repositories)\
+저는 jekyll-chirpy-theme 을 사용하였습니다.\
+[👉저가 사용한 테마를 다운받으시려면 이곳을 클릭 해주세요ㅎ](https://github.com/cotes2020?tab=repositories)\
 제가 사용한 테마를 다운받으시려는 분들은 들어가면 지금부터 저 화면이 나올겁니다.
 
 <br>
@@ -316,7 +317,7 @@ $bundle exec jekyll serve
 <br>
 
 다음글 이어서 마지막 수정 및 추가편 작성합니다ㅎ\
-여기까지 완료하는데 많은 도움을 주셨던 https://github.com/nyannyacha 선생님 감사드립니다!
+여기까지 완료하는데 많은 도움을 주셨던 <https://github.com/nyannyacha> 선생님 감사드립니다!
 
 <br>
  
