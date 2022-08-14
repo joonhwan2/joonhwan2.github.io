@@ -327,7 +327,7 @@ $bundle exec jekyll serve
 
 <br>
 
-# 링크로 이동하려면 사진을 클릭
+## 링크로 이동하려면 사진을 클릭
 
 [![어서오셔 ㅎ](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&usqp=CAU)](https://discord.gg/zkzk5xtm)
 
