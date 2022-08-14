@@ -64,7 +64,7 @@ date: 2022-08-12
 <br>
 
 ---
-# 1-2 github desktop으로 갑시다
+## 1-2 github desktop으로 갑시다
 ---
 ![Desktop View](/assets/img/2022-08-12/3.PNG)
 
