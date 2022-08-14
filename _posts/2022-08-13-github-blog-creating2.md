@@ -247,7 +247,7 @@ $bundle exec jekyll serve
 <br>
 
 ---
-# 🧐자 어떻게 해결하느냐?
+# 2-3 🧐자 어떻게 해결하느냐?
 ---
 <br>
 우선 vs코드로 들어가서 확장(extension)에서 category:formatters yaml 검색을 하고 다운로드
