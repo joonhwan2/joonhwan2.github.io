@@ -160,7 +160,7 @@ $bundle exec jekyll serve
 
 그래도 안되면 gem update --system을 콘솔창에 입력한 뒤 처음부터 전부 싹 다 해봅시다.
 ```bash
-$gem update --system
+$gem update --system     (살짝 오래걸림 이것만)
 $gem install jekyll bundler
 $gem install webrick
 $bundle install
@@ -171,7 +171,7 @@ $bundle exec jekyll serve
 <br>
 <br>
 
-성공한다면 이런창이 뜹니다
+성공한다면 이런창이 뜹니다.
   
 <br>
 <br>
