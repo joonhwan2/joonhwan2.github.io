@@ -1,6 +1,6 @@
 ---
 title:  "첫글ㅎ"
-excerpt: "감격스럽다"
+excerpt: "ㅎㅇ"
 
 categories:
   - 일상
