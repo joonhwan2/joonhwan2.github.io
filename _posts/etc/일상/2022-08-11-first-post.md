@@ -2,7 +2,7 @@
 title:  "첫글ㅎ"
 excerpt: "ㅎㅇ"
 
-categories: [일상]
+categories: [etc, 일상]
 
 tags: [blog, jekyll, github, git]
 
