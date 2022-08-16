@@ -1,6 +1,5 @@
 ---
 title:  "깃허브 블로그 만드는 법 1"
-excerpt: "1"
 
 categories: [blog] 
 
