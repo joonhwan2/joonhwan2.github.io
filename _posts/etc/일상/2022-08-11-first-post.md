@@ -1,6 +1,6 @@
 ---
 title:  "첫글ㅎ"
-excerpt: "ㅎㅇ"
+excerpt: "ㅎ"
 
 categories: [etc, 일상]
 
