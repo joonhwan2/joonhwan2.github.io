@@ -1,15 +1,12 @@
 ---
 title:  "블로그 카테고리 나누는 법"
-
 categories: [blog] 
-
 tags: [blog, jekyll, github, git]
-
 toc: true
 toc_sticky: true
- 
 date: 2022-08-16
 ---
+
 <br>
 
 ---

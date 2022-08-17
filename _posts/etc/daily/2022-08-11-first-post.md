@@ -1,14 +1,9 @@
 ---
 title:  "첫글ㅎ"
-excerpt: "ㅎㅇ"
-
-categories: [etc, 일상]
-
+categories: [etc, daily]
 tags: [blog, jekyll, github, git]
-
 toc: true
 toc_sticky: true
- 
 date: 2022-08-11
 ---
 
