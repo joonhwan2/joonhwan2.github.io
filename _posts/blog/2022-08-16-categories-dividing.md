@@ -1,5 +1,5 @@
 ---
-title:  "블로그 카테고리 나누는 법"
+title:  "[blog] 블로그 카테고리 나누는 법"
 categories: [blog] 
 tags: [blog, jekyll, github, git]
 toc: true

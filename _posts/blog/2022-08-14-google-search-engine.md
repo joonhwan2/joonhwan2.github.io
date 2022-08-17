@@ -1,5 +1,5 @@
 ---
-title:  "깃허브 블로그 구글검색 노출시키기"
+title:  "[blog] 깃허브 블로그 구글검색 노출시키기"
 categories: [blog] 
 tags: [blog, jekyll, github, git]
 toc: true
