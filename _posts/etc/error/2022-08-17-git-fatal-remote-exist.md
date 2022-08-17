@@ -32,7 +32,7 @@ fatal: remote origin already exists
 <br>
 <br>
 
-> # 🗝내가 해결한 방법 1
+> # 🔑내가 해결한 방법 1
 
 ```
 git remote rm origin     (기존 연결 끊기)
@@ -62,7 +62,7 @@ fatal 'origin' does not appear to be a git repository       fatal Could not read
 <br>
 <br>
 
-> # 🗝내가 해결한 방법 2
+> # 🔑내가 해결한 방법 2
 
 ```
 git remote add origin "https://github.com/joonhwan2/joonhwan2.github.io.git"
