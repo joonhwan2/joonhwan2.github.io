@@ -1,13 +1,9 @@
 ---
 title:  "첫글ㅎ"
-
 categories: [etc, daily]
-
 tags: [blog, jekyll, github, git]
-
 toc: true
 toc_sticky: true
- 
 date: 2022-08-11
 ---
 
