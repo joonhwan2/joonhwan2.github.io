@@ -1,0 +1,261 @@
+I"�(<p><br /></p>
+
+<hr />
+
+<h1 id="3-1-_configyml-열어서-수정">3-1 _config.yml 열어서 수정</h1>
+<hr />
+
+<p><br /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td> --><td class="rouge-code"><pre>theme: jekyll-theme-chirpy       # import하는 테마 명, 바꾸지 말 것!
+baseurl: ''       #사용자 페이지를 만든 경우 공란, 프로젝트 페이지를 만든 경우 프로젝트 명 기입
+avatar: /assets/img/icon.jpg   #원하는 경로로 변경
+timezone: Asia/Seoul
+title: 고준환            #블로그 맨 상단에 설정된 이름 확인가능
+tagline: '어서오시게'     #(부제목 첫 페이지 좌측에서 확인가능)
+url: 'https://joonhwan2.github.io'#깃허브 주소 적으면됨
+
+github:
+  username: joonhwan2             # 깃허브 이름 바꾸면 될듯
+
+name:               #아무거나
+email:              #이메일
+links:     #여기 밑에는 필요하신분들만
+img_cdn: ''      #공란으로 둬야 나중에 프사가 잘 나옵니다
+avatar: /assets/img/icon.jpg      #프사 경로 설정후 하시면 됩니다
+toc: true  (블로그에 포스팅 옆에서 스크롤을 따라오는 목차)   #사용 true   미사용 false
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><br /></p>
+
+<p>완료후 ruby cmd로 테스트를 해보고 됬다싶으면 git add~push 를 하거나<br />
+폴더를 깃허브 리포에 마우스로 드래그하여 업로드 후에</p>
+
+<p><br /></p>
+
+<p><img src="/assets/img/2022-08-14/2-1.PNG" alt="Desktop View" /></p>
+
+<p><br /></p>
+
+<p>1 -&gt; 2 -&gt; 3번째에서 gh-page로 설정해 준 후에 4번을 봤을 때<br />
+deployed by github pages 라고 나오면 성공입니다.<br />
+그리고 이거 연동되는데 시간이 조금 걸렸네요 저는 5분 뒤에<br />
+<a href="https://joonhwan2.github.io">https://joonhwan2.github.io</a> 제 주소를 홈페이지에 쳐보니 들어가졌습니다.<br />
+<br />
+<br /></p>
+
+<p>번외편 이어서 합니다!</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<hr />
+
+<h1 id="3-2-글-업로드가-안된다-참고합시다">3-2 글 업로드가 안된다?? 참고합시다!</h1>
+<hr />
+
+<p>※<code class="language-plaintext highlighter-rouge">devyuseon</code>님의 블로그를 참고하여 작성합니다.
+<br />
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">_posts</code> 에 <code class="language-plaintext highlighter-rouge">.md</code>파일을 추가후 git add ~ push까지 완료했는데     오잉👀  뭐냐?
+<br />
+<br /></p>
+
+<p><img src="/assets/img/2022-08-14/1.PNG" alt="Desktop View" />
+<br /></p>
+
+<p>처음에는 몰라서 헤맸는데 다행히 이 오류에 관한 블로그를 찾았다 ㅎ
+<br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/2022-08-14/3.PNG" width="200" height="200" /></p>
+
+<p><br /></p>
+
+<p>자 <code class="language-plaintext highlighter-rouge">_config.yml</code>로 들어와서 이 2문장을 추가해봅시다</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre><span class="na">futrue</span><span class="pi">:</span> <span class="no">true</span>               <span class="c1">#  미래의 포스팅을 보이게 하는 설정</span>
+<span class="na">published</span><span class="pi">:</span> <span class="no">true</span>            <span class="c1">#  publised   공개/비공개 설정</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><br />
+<br />
+그리고 로컬 서버로 확인하거나, git add~push해본 뒤 다시 홈페이지를 들어가면</p>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/2022-08-14/2.PNG" alt="Desktop View" /></p>
+
+<p><br />
+오오 ! 글 올리기 오류 해결V</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<hr />
+
+<h1 id="3-3-댓글-기능">3-3 댓글 기능</h1>
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">하얀눈길</code>님의 블로그를 참고하였습니다.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">_config.yml</code>로 들어와서</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre>provider: utterence   #댓글기능인데 저는 disqus와 utterence중 2번째걸로 했습니다
+comments: true          #사용 true   미사용 false
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그 후, <a href="https://github.com/apps/utterances">이것을 클릭해보세요</a><br />
+아래와 같이 나올겁니다</p>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/2022-08-14/4.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+이제 저것을 클릭합니다.</p>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/2022-08-14/5.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>저는 이미 완료했기에 아래처럼 <code class="language-plaintext highlighter-rouge">joonhwan2/joonhwan2.github.io</code>로 나옵니다<br />
+여러분들은 select repositories 클릭해서 연동시켜주시면 됩니다 ㅎ<br />
+그리고 조금 내려가시다 보면 아래와 같은 화면이 나옵니다</p>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/2022-08-14/6.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>저가 한 형식과 똑같이 그대로 적어주시면 됩니다. 그리고 조금 밑으로 내려가다보면</p>
+
+<p><br />
+<br /></p>
+
+<h1 id="enable-utterances">Enable Utterances</h1>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td> --><td class="rouge-code"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="dl">"</span><span class="s2">https://utteranc.es/client.js</span><span class="dl">"</span>
+        <span class="nx">repo</span><span class="o">=</span><span class="dl">"</span><span class="s2">joonhwan2/joonhwan2.github.io</span><span class="dl">"</span>
+        <span class="nx">issue</span><span class="o">-</span><span class="nx">term</span><span class="o">=</span><span class="dl">"</span><span class="s2">url</span><span class="dl">"</span>
+        <span class="nx">theme</span><span class="o">=</span><span class="dl">"</span><span class="s2">github-light</span><span class="dl">"</span>
+        <span class="nx">crossorigin</span><span class="o">=</span><span class="dl">"</span><span class="s2">anonymous</span><span class="dl">"</span>
+        <span class="k">async</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p><br />
+이게 나오는데 여기서 <code class="language-plaintext highlighter-rouge">repo</code>내용 맞는지 확인해주시고 맞으면 copy버튼 클릭합니다.
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">_layouts/post.html</code> 이제 이 경로로 들어가서 맨 아랫부분에 아까 그 코드 붙여넣기 하시면됩니다.</p>
+
+<p><br />
+<br /></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td> --><td class="rouge-code"><pre><span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- div.post-tail-wrapper --&gt;</span>
+
+
+<span class="c">&lt;!-- 댓글기능 삽입 --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://utteranc.es/client.js"</span>
+        <span class="na">repo=</span><span class="s">"joonhwan2/joonhwan2.github.io"</span>
+        <span class="na">issue-term=</span><span class="s">"url"</span>
+        <span class="na">theme=</span><span class="s">"github-light"</span>
+        <span class="na">crossorigin=</span><span class="s">"anonymous"</span>
+        <span class="na">async</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+자 이제 ruby cmd를 켜서 <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> 이 명령어를 콘솔창에 입력해봅시다.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/img/2022-08-14/8.PNG" alt="Desktop View" /></p>
+
+<p><br /></p>
+
+<p>오 잘나오구만! 이것으로 이제 끝입니다 ㅎㅎ
+<br /> 
+참 파비콘도 있는데 이건 쉬워서 그냥 링크만 놔둘께요 <a href="https://favicon.io/favicon-converter/">favicon 변경하기</a><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">asset\image\favicon</code> 이 경로로 들어가시면 답 나옵니다. 이제 진짜 끝ㅎ!</p>
+
+<p><br />
+<br /></p>
+
+<p>아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+
+<hr />
+
+<h1 id="참고">참고</h1>
+<hr />
+
+<p>‘dodev’        <a href="https://wlqmffl0102.github.io/posts/Making-Git-blogs-for-beginners-3/">초보자를 위한 GitHub Blog 만들기 - 3</a></p>
+
+<p><br /></p>
+
+<p>‘devyuseon’      <a href="https://devyuseon.github.io/github%20blog/githubblog-post-not-shown/">[Github Blog] 깃허브 블로그 포스팅 게시 안됨 해결</a></p>
+
+<p><br /></p>
+
+<p>‘하얀눈길’    <a href="https://www.irgroup.org/posts/utternace-comments-system/">Jekyll 테마에 utterances 댓글 연동하기</a></p>
+:ET

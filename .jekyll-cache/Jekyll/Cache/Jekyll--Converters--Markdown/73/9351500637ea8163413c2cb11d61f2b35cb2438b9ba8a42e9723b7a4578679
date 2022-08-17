@@ -1,0 +1,155 @@
+I"�<p><br /></p>
+
+<blockquote>
+  <h1 id="문제-발생">🚨문제 발생</h1>
+  <ul>
+    <li>사진 참고</li>
+  </ul>
+</blockquote>
+
+<p><br /></p>
+
+<p><img src="/assets/img/no-update-on-github/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>후후 좋아 업데이트 내역이나 확인해볼까 ㅎ_ㅎ</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/no-update-on-github/2.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>오잉 ??</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h2 id="여기로-들어오는법-우선-본인-깃허브로">여기로 들어오는법 (우선 본인 깃허브로)</h2>
+
+<p><br /></p>
+
+<p><img src="/assets/img/no-update-on-github/3.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">action</code>을 누르면</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/no-update-on-github/4.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">빨간 네모</code>를 누르면 어떤 파일을 올렸는지 알 수 있고,     <code class="language-plaintext highlighter-rouge">노란색</code>을 누르면 아래 사진으로 가집니다.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/no-update-on-github/5.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>자 둘중에 하나를 눌러 조금 내리다 보면은 이런 에러들 중 하나가 나올겁니다 제가 본건 일단 이 2개입니다</p>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/no-update-on-github/6.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/no-update-on-github/7.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <p>HTML-Proofer found 1 failure!<br />
+Error: Process completed with exit code 1.</p>
+
+  <p><br /></p>
+
+  <p>could not locate Gemfile or .bundle/ directory<br />
+Error: Process completed with exit code 10.</p>
+</blockquote>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>이걸 보고 관련된 파일들을 열어서 고치면 대박인데 이런 저런 다양한 방법을 강구해보았지만 저는 찾지 못했습니다<br />
+그래서 결국 생각해낸 결론이 분명 내가 파일 및 폴더를 지우면서 관련된 자료가 소실됬구나! 라는 생각이 들더군요.</p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h1 id="내가-사용한-해결-방법">🗝내가 사용한 해결 방법</h1>
+  <ul>
+    <li>1
+<code class="language-plaintext highlighter-rouge">vs코드</code> <code class="language-plaintext highlighter-rouge">Ruby</code> <code class="language-plaintext highlighter-rouge">Jekyll</code> 싹 지우고 재설치.</li>
+    <li>2
+`github desktop’ 들어가니 클론이 풀려있어서 다시 재등록</li>
+    <li>3
+<code class="language-plaintext highlighter-rouge">CMD</code>에서 git clone “repo주소”      재등록</li>
+  </ul>
+</blockquote>
+
+<h2 id="-git-clone-쓰면-선택된-경로로-githubio-폴더-생김">※ git clone 쓰면 선택된 경로로 github.io 폴더 생김</h2>
+
+<p><br />
+<br /></p>
+
+<p>cd 원하는경로    들어간 후</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git <span class="nb">rm</span> <span class="nt">--cached</span> <span class="nb">.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>한 후에 다시 업로드시켜서 결과를 보니 성공! 진작 삭제하고 재설치할걸 그랬다.<br />
+이것때문에 장작 <del>7시간</del>은 날린거같은데 ㅎㅎ.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h1 id="보시고-미흡한-부분이-있다면-피드백은-언제나-환영합니다">보시고 미흡한 부분이 있다면 피드백은 언제나 환영합니다!</h1>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<p>아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+:ET
