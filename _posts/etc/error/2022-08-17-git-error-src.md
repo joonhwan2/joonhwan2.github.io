@@ -18,27 +18,35 @@ date: 2022-08-17
 <br>
 <br>
 
-![Desktop View](/assets/img/git-error/deleted/1.PNG)
+![Desktop View](/assets/img/git-error/error-src/1.PNG)
 
+<br>
+<br>
+
+해당 오류는 깃허브에서 pull 없이 push할 경우 기존 내용을 삭제하거나 하는 문제가 생길 수 있기 때문에,\
+에러 메세지를 발생시키는 것.
+
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
 
 > # 🔑내가 해결한 방법 
-> * `git add -u`  &nbsp;&nbsp;&nbsp;  (= update track file 최신화 하겠다)
-> * `git commit -m "아무거나 치세요"`
-> * `git push`
->
-><br>
->
-> * `git rm --cached -r .`    (로컬저장소에 자료 남겨두고 원격저장소에 있는 자료만 삭제하겠다)\
-> = 내 노트북의 폴더 자료 살리고, 깃허브 인터넷상 자료만 삭제할께 ㅎ
-> * `git commit -m "아무거나 치세요"`
-> * `git push`
-> 
-> <br>
-> 
->  그후 git add ~ push 를 통해 복구를 하여 해결하였습니다.
+
+```bash
+$git clone "나의 깃허브 리포 주소"  
+$git init
+$git branch -m main
+$git remote add origin "나의 깃허브 리포 주소" 
+$git add .
+$git commit -m "first commit"
+$git push origin main
+```
+저는 이렇게 해결하였습니다!
 
 # [준환과 함께 깃 명령어 알아보러 가기🤓](https://joonhwan2.github.io/posts/git-add/)
 
