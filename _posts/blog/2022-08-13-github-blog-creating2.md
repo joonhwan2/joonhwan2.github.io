@@ -164,7 +164,7 @@ $bundle add webrick
 $bundle exec jekyll serve
 ```
 
-빠진게 있나 확인할 수 있는 명령어
+빠진게 있나 확인할 수 있는 명령어 & 오류도 찾아줍니다!
 ```
 $jekyll build --verbose
 ```
