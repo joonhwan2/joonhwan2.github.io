@@ -1,15 +1,12 @@
 ---
 title:  "블로그 카테고리 나누는 법"
-
 categories: [blog] 
-
 tags: [blog, jekyll, github, git]
-
 toc: true
 toc_sticky: true
- 
 date: 2022-08-16
 ---
+
 <br>
 
 ---
@@ -45,5 +42,17 @@ date: 2022-08-16
 > `md`파일의 카테고리 부분 수정
 > * ③
 > 재 업로드
+
+<br>
+<br>
+<br>
+
+저는 이렇게 하였습니다.
+
+<br>
+
+![Desktop View](/assets/img/categories-dividing/3.PNG)
+
+<br>
 
 

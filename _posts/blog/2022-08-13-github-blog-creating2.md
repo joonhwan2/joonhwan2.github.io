@@ -1,16 +1,12 @@
 ---
 title:  "깃허브 블로그 만드는 법 2"
-excerpt: "3"
-
 categories: [blog] 
-
 tags: [blog, jekyll, github, git]
-
 toc: true
 toc_sticky: true
- 
 date: 2022-08-13
 ---
+
 <br>
 
 ---
@@ -203,7 +199,16 @@ serer address 부분에 저거를 복사하여 주소창에 입력해보면
 `.github`폴더 안에서, `workflows`폴더를 제외한 나머지\
 `.github`폴더 > `workflows`폴더에서 ci.yml 그리고  `issue-pr-interceptor.yml` 그리고 `commitlint.yml` 이 3개 삭제\
 `gemfile.lock`\
- `asset`폴더의 404.html 건드리지말고!, 바깥에 있는 404.html 제거
+ `asset`폴더의 404.html 건드리지말고!, 바깥에 있는 404.html 제거\
+ `.gitignore` 에 gemfile.lock 제거
+
+
+<br>
+ 그리고 본인의 컴퓨터가 리눅스가 아니라면 입력합시다
+ 
+ ```
+ $bundle lock --add-platform x86_64-linux
+```
 <br>
 <br>
   

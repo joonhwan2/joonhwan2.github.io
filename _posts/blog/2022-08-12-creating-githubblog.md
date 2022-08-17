@@ -1,14 +1,9 @@
 ---
 title:  "깃허브 블로그 만드는 법 1"
-excerpt: "1"
-
 categories: [blog] 
-
 tags: [blog, jekyll, github, git]
-
 toc: true
 toc_sticky: true
- 
 date: 2022-08-12
 ---
 
@@ -86,7 +81,8 @@ date: 2022-08-12
 <br>
 
 우측에 보이는 코드를 눌러 거기 나오는 주소를 복사한 뒤 github desktop으로 돌아가 입력하고 clone(다운로드) 하면\
-어떤 코드가 뜨면서 완료됬다고 할 겁니다.\
+어떤 코드가 뜨면서 완료됬다고 할 겁니다.
+
 
 여기까지 하였으면 이제 vs코드로 index.html 파일을 만들어 깃허브에 아까 reposistory한 곳에 올려봅시다, 내용은 이렇게
 ```html
