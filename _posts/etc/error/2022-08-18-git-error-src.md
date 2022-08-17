@@ -1,5 +1,5 @@
 ---
-title:  "[error src refspec main does not match any]"  깃 에러
+title:  "[error src refspec main does not match any]"  깃 에러2
 categories: [etc, error] 
 tags: [git error]
 toc: true
