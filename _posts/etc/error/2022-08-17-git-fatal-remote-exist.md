@@ -20,13 +20,16 @@ fatal: remote origin already exists
 
 <br>
 <br>
-
-
+연결오류라고 하니 자 이제 기존 연결을 끊고 재연결을 해봅시다.
+<br>
+<br>
+<br>
+<br>
 
 > # 🗝내가 해결한 방법
 
 ```
-git remote rm origin
+git remote rm origin     (기존 연결 끊기)
 git remote add origin 깃 리포 주소 입력
 git remote -v          (잘 연결되었나 확인)
 git push origin main
