@@ -1,10 +1,10 @@
 ---
-title:  "[error src refspec main does not match any]"  깃 에러2
+title:  "[error src refspec main does not match any] 깃에러2"
 categories: [etc, error] 
 tags: [git error]
 toc: true
 toc_sticky: true
-date: 2022-08-18
+date: 2022-08-17
 ---
 
 <br>
