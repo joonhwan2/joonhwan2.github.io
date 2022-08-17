@@ -1,5 +1,5 @@
 ---
-title:  "첫글ㅎ"
+title:  "[daily] 첫글ㅎ"
 categories: [etc, daily]
 tags: [blog, jekyll, github, git]
 toc: true
