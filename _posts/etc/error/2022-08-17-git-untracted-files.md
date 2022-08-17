@@ -1,7 +1,7 @@
 ---
 title:  "[git error untracted files] untracted files"
 categories: [etc, error] 
-tags: [blog, jekyll, github, git]
+tags: [git error]
 toc: true
 toc_sticky: true
 date: 2022-08-17

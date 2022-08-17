@@ -1,7 +1,7 @@
 ---
 title:  "[fatal: remote origin already exists] 깃 푸시 오류"
 categories: [etc, error] 
-tags: [blog, jekyll, github, git]
+tags: [git error]
 toc: true
 toc_sticky: true
 date: 2022-08-17
