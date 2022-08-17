@@ -163,6 +163,11 @@ $bundle update
 $bundle add webrick
 $bundle exec jekyll serve
 ```
+
+빠진게 있나 확인할 수 있는 명령어
+```
+$jekyll build --verbose
+```
 <br>
 <br>
 
