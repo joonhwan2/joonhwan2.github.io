@@ -16,9 +16,9 @@ date: 2022-08-18
 <br>
 <br>
 
-
+---
 # git fetch
-
+---
 원격저장소(깃허브 인터넷 상)에 있는 변경사항들을 로컬저장소(내 노트북)에 가져오기 전에 변경내용을 확인하고 싶은경우에 사용\
 만약 제가 공동으로 작업하는 파일을 github에 올리고 잤어요.\
 근데 다음날 누군가 제 파일에 수정을 했는지 안했는지 확인하고 싶을때!\
@@ -123,12 +123,68 @@ action을 눌러 저는 해당되는 숫자를 찾아 클릭해보니
 
 ![Desktop View](/assets/img/git/fetch-pull/6.PNG)
 
+
+<br>
+<br>
+
+자 원격저장소에서는 바뀌었지만 로컬저장소(내 노트북)에서는 어떨까?\
+바로 확인해봅시다.
+
+<br>
+<br>
+
+![Desktop View](/assets/img/git/fetch-pull/7.PNG)
+
+<br>
+
+오! git fetch는 원격저장소만 수정하고 내 로컬저장소는 수정하지 않군요.\
+여기까지가 git fetch이고 이어서 git pull 합니다 ㅎ
+
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
 
-### 
+---
+# git pull
+---
 
+![Desktop View](/assets/img/git/fetch-pull/8.PNG)
+
+<br>
+<br>
+
+> 이번에 깃허브로 들어가서 이렇게 고쳐봤습니다.
+
+<br>
+
+```bash
+git pull origin main
+git push 여기까지  
+```
+
+![Desktop View](/assets/img/git/fetch-pull/9.PNG)
+
+<br>
+<br>
+<br>
+
+자 아까랑 똑같은 방법으로 깃허브 -> action -> 해당되는 숫자 클릭을하면 변화를 보실 수 있을겁니다.\
+그 후 노트북의 그 파일을 열어보면 
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/git/fetch-pull/10.PNG)
+
+<br>
+<br>
+
+git pull은 제 노트북의 자료도 동일화 시키네요!\
+자 이로서 `git fetch`와 `git pull`차이를 알아보았습니다. 자료들이 도움이 됬길 바랍니다 ㅎㅎ
 
 <br>
 <br>
@@ -151,12 +207,5 @@ action을 눌러 저는 해당되는 숫자를 찾아 클릭해보니
 ---
 # 참고
 ---
-'Outsider's Dev Story' &nbsp;&nbsp;&nbsp;&nbsp;   [git이 추적하지 않는 untracked files 한꺼번에 삭제하기](https://blog.outsider.ne.kr/1164)
+'공부하는 공작새' &nbsp;&nbsp;&nbsp;&nbsp;   [git fetch pull 사용법, fetch pull 차이점 알아보기](https://chaeyoung2.tistory.com/43)
 
-<br>
-
-'noyo0123.log' &nbsp;&nbsp;&nbsp;&nbsp; [git 명령어 정리, 에러정리](https://velog.io/@noyo0123/git-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A0%95%EB%A6%AC-%EC%97%90%EB%9F%AC%EC%A0%95%EB%A6%AC-znk1zz2k5e)
-
-<br>
-
-'gmlwjd9405' &nbsp;&nbsp;&nbsp;&nbsp;[[Git] git add 취소하기, git commit 취소하기, git push 취소하기](https://gmlwjd9405.github.io/2018/05/25/git-add-cancle.html)
