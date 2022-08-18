@@ -18,8 +18,28 @@ date: 2022-08-18
 <br>
 <br>
 
+```bash
+git push -u origin main
+```
+입력했더니
+
 ![Desktop View](/assets/img/git-error/git-push/1.PNG)
 
 <br>
 <br>
+
+ㅇㄴ
+
+```bash
+git pull origin main
+```
+을 해보았더니
+
+> fatal: Couldn't find remote ref main.  Unexpected end of commands stream
+
+<br>
+
+```bash
+git pull --rebase origin main
+```
 
