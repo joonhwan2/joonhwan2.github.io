@@ -17,7 +17,7 @@ date: 2022-08-18
 <br>
 
 ---
-# git fetch
+> * # git fetch
 ---
 원격저장소(깃허브 인터넷 상)에 있는 변경사항들을 로컬저장소(내 노트북)에 가져오기 전에 변경내용을 확인하고 싶은경우에 사용\
 만약 제가 공동으로 작업하는 파일을 github에 올리고 잤어요.\
@@ -144,11 +144,26 @@ action을 눌러 저는 해당되는 숫자를 찾아 클릭해보니
 <br>
 <br>
 <br>
+
+---
+> ####  ❗ 잠깐 혹시 `git push` 하다가 오류나서 `git status` 쳤는데 이런 오류가 떳다면 여기를 참고해주세요 ㅎ
+---
+![Desktop View](/assets/img/git-error/head-detached-at/1.PNG)
+
+### [HEAD detached at 오류 해결하러가기!](https://joonhwan2.github.io/posts/git-fetch-head-detached/)
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
 ---
-# git pull
+> * # git pull
 ---
 
 ![Desktop View](/assets/img/git/fetch-pull/8.PNG)
