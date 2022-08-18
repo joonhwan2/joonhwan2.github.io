@@ -12,7 +12,14 @@ date: 2022-08-18
 <br>
 <br>
 
+
+<br>
+<br>
+
 > # 🚨문제 발생 &nbsp;
+> `git fetch origin/main` 을 한 후\
+> `git push origin main`을 하였더니 사진과 같은 오류
+>
 > * 사진 참고
 
 <br>
@@ -23,7 +30,7 @@ git push -u origin main
 ```
 입력했더니
 
-![Desktop View](/assets/img/git-error/git-push/1.PNG)
+![Desktop View](/assets/img/git-error/head-detached-at/1.PNG)
 
 <br>
 <br>
