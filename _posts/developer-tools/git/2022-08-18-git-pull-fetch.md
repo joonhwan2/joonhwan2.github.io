@@ -205,6 +205,6 @@ git pull은 제 노트북의 자료도 동일화 시키네요!\
 
 
 ---
-# 참고
+# 참고 &nbsp;
 ---
 '공부하는 공작새' &nbsp;&nbsp;&nbsp;&nbsp;   [git fetch pull 사용법, fetch pull 차이점 알아보기](https://chaeyoung2.tistory.com/43)
