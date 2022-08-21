@@ -1,0 +1,190 @@
+I"� <p><br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h2 id="요약">요약</h2>
+  <ul>
+    <li>원 자료에 영향을 주지않고 버그 수정이나 새로운 기능 구현을 위해서는 새로운 브랜치를 만들자</li>
+    <li>브랜치 변경 후 <code class="language-plaintext highlighter-rouge">vim index.html</code>로 새로운 공간을 만들어 그곳에서 작업하자</li>
+    <li>기능 구현 완료된 작업물은 다시 주요 브랜치로 변경하여 그 곳에서 하던 브랜치를 병합해주자</li>
+  </ul>
+</blockquote>
+
+<hr />
+
+<h2 id="-git-merge---그림-18--상황-추가---글-다음-그림결과">🎲 git merge   그림 1~8 &amp; 상황 추가      글 다음 그림결과</h2>
+<hr />
+
+<p><br /></p>
+
+<h3 id="그림-1----main-브랜치로-a3까지-작업하였다">그림 1         <code class="language-plaintext highlighter-rouge">main</code> 브랜치로 A3까지 작업하였다</h3>
+
+<p><img src="/assets/img/git/merge/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p><br />
+<br /></p>
+
+<p>수력발전 프로그램 구현을 위해 <code class="language-plaintext highlighter-rouge">water</code> 브랜치 추가하여</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre> <span class="nv">$git</span> branch water
+ <span class="nv">$git</span> checkout water
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>혹은</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre> <span class="nv">$git</span> checkout <span class="nt">-b</span> water
+ 이거 성공시 Switched to a new branch <span class="s2">"water"</span> 이렇게 나옵니다
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h3 id="그림-2">그림 2</h3>
+
+<p><img src="/assets/img/git/merge/2.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">water</code>브랜치 설정 된 상태에서 아래와 같은 명령어를 입력하면 새로운 공간을 만들어<br />
+그곳에서 작업할 수 있는 환경을 조성함</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre><span class="nv">$vim</span> index.html    <span class="o">(</span>새로운 작업공간 창조<span class="o">)</span>
+<span class="nv">$git</span> commit <span class="nt">-m</span> <span class="s2">"water system checking 1"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h3 id="그림-3">그림 3</h3>
+
+<p><img src="/assets/img/git/merge/3.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>예로 만드는 사이트에서 버그가 생기면 즉시 고쳐야한다! 근데 작업중인 <code class="language-plaintext highlighter-rouge">water</code>에 반영되면<br />
+안되기 때문에 <code class="language-plaintext highlighter-rouge">hurryfix</code>브랜치를 만들어 이곳에서 해결하기 위해 다시 <code class="language-plaintext highlighter-rouge">git checkout main</code>으로 돌아가서</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre><span class="nv">$git</span> checkout <span class="nt">-b</span> hurryfix
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>생성 후 A3에 <code class="language-plaintext highlighter-rouge">hurryfix</code> 브랜치가 생기고 매인 브랜치로 바뀌는 동시, 이때</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre><span class="nv">$vim</span> index.html
+<span class="nv">$git</span> commit <span class="nt">-m</span> <span class="s2">"hotfix locked and loaded"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>입력하면 main브랜치가 있던 A3까지를 기억하는 A5를 생성해 <code class="language-plaintext highlighter-rouge">water</code>브랜치에서 작업하는데 방해하지 않고 버그 수정 가능하다</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h3 id="그림-4">그림 4</h3>
+
+<p><img src="/assets/img/git/merge/4.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>자 이제 급한 버그 수정이 끝났으면</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td> --><td class="rouge-code"><pre><span class="nv">$git</span> checkout main
+<span class="nv">$git</span> merge hurryfix
+<span class="nv">$git</span> branch <span class="nt">-D</span> hurryfix
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그러면 이제 <code class="language-plaintext highlighter-rouge">hurryfix</code> 브랜치는 사라진다.</p>
+
+<h3 id="그림-5">그림 5</h3>
+
+<p><img src="/assets/img/git/merge/5.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>hurryfix 브랜치가 삭제된 상태에서</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre><span class="nv">$git</span> branch water    이제 <span class="sb">`</span>water<span class="sb">`</span> 브랜치로 바뀜
+<span class="nv">$vim</span> index.html     A4까지 완료한거 영향을 안주기위해 백업해놓고 A6생성
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h3 id="그림-6">그림 6</h3>
+
+<p><img src="/assets/img/git/merge/6.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>수력발전 프로그램 구현 완료후 이제 main 브랜치에 병합을 시키자</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre><span class="nv">$git</span> checkout main     <span class="o">(</span>main으로 매인브랜치 변경<span class="o">)</span>
+<span class="nv">$git</span> merge water       <span class="o">(</span>water 브랜치 내용을 병합하겠다<span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+<br /></p>
+
+<h3 id="그림-7">그림 7</h3>
+<p><img src="/assets/img/git/merge/7.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>이제 <code class="language-plaintext highlighter-rouge">water</code>브랜치는 지워도 무방</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<h3 id="그림-8">그림 8</h3>
+<p><img src="/assets/img/git/merge/8.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+`
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<p>아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+
+<hr />
+
+<h1 id="참고-">참고  </h1>
+<hr />
+
+<p>‘git 공식홈페이지’        <a href="https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%99%80-Merge-%EC%9D%98-%EA%B8%B0%EC%B4%88#_basic_merging">3.2 Git 브랜치 - 브랜치와 Merge 의 기초</a></p>
+:ET

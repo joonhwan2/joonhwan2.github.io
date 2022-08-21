@@ -1,0 +1,43 @@
+I"�<p><br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="문제-발생-">🚨문제 발생  </h1>
+  <ul>
+    <li>사진 참고</li>
+  </ul>
+</blockquote>
+
+<p><br />
+<br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git push <span class="nt">-u</span> origin main
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>입력했더니</p>
+
+<p><img src="/assets/img/git-error/git-push/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>ㅇㄴ</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git pull origin main
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>을 해보았더니</p>
+
+<blockquote>
+  <p>fatal: Couldn’t find remote ref main.  Unexpected end of commands stream</p>
+</blockquote>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git pull <span class="nt">--rebase</span> origin main
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

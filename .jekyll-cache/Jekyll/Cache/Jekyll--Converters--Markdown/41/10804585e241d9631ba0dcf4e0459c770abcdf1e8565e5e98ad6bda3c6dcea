@@ -1,0 +1,105 @@
+I"�<h2 id="--2가지-오류-및-해결방법을-작성하였습니다">❗  2가지 오류 및 해결방법을 작성하였습니다</h2>
+<blockquote>
+  <ul>
+    <li>fatal: remote origin already exists</li>
+    <li>fatal ‘origin’ does not appear to be a git repository       fatal Could not read from remote repository</li>
+  </ul>
+</blockquote>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="문제-발생-1">🚨문제 발생 1</h1>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>fatal: remote origin already exists
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+연결오류라고 하니 자 이제 기존 연결을 끊고 재연결을 해봅시다.
+<br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="내가-해결한-방법-1">🔑내가 해결한 방법 1</h1>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>git remote rm origin     (기존 연결 끊기)
+git remote add origin 깃 리포 주소 입력
+git remote -v          (잘 연결되었나 확인)
+git push origin main
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="문제-발생-2">🚨문제 발생 2</h1>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>fatal 'origin' does not appear to be a git repository       fatal Could not read from remote repository
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+깃 리포로 부터 읽을 수 없다 ?
+<br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="내가-해결한-방법-2">🔑내가 해결한 방법 2</h1>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>git remote add origin "https://github.com/joonhwan2/joonhwan2.github.io.git"
+git clone "https://github.com/joonhwan2/joonhwan2.github.io.git"
+git pull origin main
+git push origin main
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>★ 깃 클론명령어 사용 후 폴더는 현재 위치한 경로에 생성될 건데<br />
+     생성된 폴더는  삭제해도 무방함.</p>
+
+<h1 id="준환과-함께-깃-명령어-알아보러-가기"><a href="https://joonhwan2.github.io/posts/git-add/">준환과 함께 깃 명령어 알아보러 가기🤓</a></h1>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h2 id="보시고-미흡한-부분이-있다면-피드백은-언제나-환영합니다">보시고 미흡한 부분이 있다면 피드백은 언제나 환영합니다!</h2>
+
+<p><br />
+<br />
+아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭-">링크로 이동하려면 사진을 클릭    </h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+:ET

@@ -1,0 +1,64 @@
+I"�<p><br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="문제-발생">🚨문제 발생</h1>
+  <ul>
+    <li>사진 참고</li>
+  </ul>
+</blockquote>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/git-error/deleted/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="내가-해결한-방법">🔑내가 해결한 방법</h1>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">git add -u</code>       (= update track file 최신화 하겠다)</li>
+    <li><code class="language-plaintext highlighter-rouge">git commit -m "아무거나 치세요"</code></li>
+    <li><code class="language-plaintext highlighter-rouge">git push</code></li>
+  </ul>
+
+  <p><br /></p>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">git rm --cached -r .</code>    (로컬저장소에 자료 남겨두고 원격저장소에 있는 자료만 삭제하겠다)<br />
+= 내 노트북의 폴더 자료 살리고, 깃허브 인터넷상 자료만 삭제할께 ㅎ</li>
+    <li><code class="language-plaintext highlighter-rouge">git commit -m "아무거나 치세요"</code></li>
+    <li><code class="language-plaintext highlighter-rouge">git push</code></li>
+  </ul>
+
+  <p><br /></p>
+
+  <p>그후 git add ~ push 를 통해 복구를 하여 해결하였습니다.</p>
+</blockquote>
+
+<h1 id="준환과-함께-깃-명령어-알아보러-가기"><a href="https://joonhwan2.github.io/posts/git-add/">준환과 함께 깃 명령어 알아보러 가기🤓</a></h1>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h2 id="보시고-미흡한-부분이-있다면-피드백은-언제나-환영합니다">보시고 미흡한 부분이 있다면 피드백은 언제나 환영합니다!</h2>
+
+<p><br />
+<br />
+아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+:ET

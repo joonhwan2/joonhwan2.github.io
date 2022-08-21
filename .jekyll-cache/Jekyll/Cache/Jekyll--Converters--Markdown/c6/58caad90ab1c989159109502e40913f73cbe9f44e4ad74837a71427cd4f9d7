@@ -1,0 +1,107 @@
+I"<p><br /></p>
+
+<hr />
+<h2 id="카테고리를-어떻게-하면-나눌-수-있을까">🤔카테고리를 어떻게 하면 나눌 수 있을까?</h2>
+<hr />
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/categories-dividing/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/categories-dividing/2.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>음 뭔가 깔끔해보이지가 않아..<br />
+이걸 카테고리별로 묶기위해 1시간 정도 시행착오를 겪은 후 드디어 방법을 찾았다!.</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="방법">방법!</h1>
+  <ul>
+    <li>①
+_post 안에 <code class="language-plaintext highlighter-rouge">폴더</code>를 만들어 md파일을 카테고리별로 추가</li>
+    <li>②
+<code class="language-plaintext highlighter-rouge">md</code>파일의 카테고리 부분 수정</li>
+    <li>③
+재 업로드</li>
+  </ul>
+</blockquote>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>저는 이렇게 하였습니다.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/img/categories-dividing/3.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<p>그리고 해당되는 md폴더를 열어서 categories를 고치면 됩니다 제꺼를 한번 보여드리겠습니다.
+<br />
+<br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/categories-dividing/4.PNG" alt="Desktop View" /></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>categories: [상위폴더명, 하위폴더명] 
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+이렇게 적으신다면 카테고리 설정이 됩니다.</p>
+
+<p><br />
+<br /></p>
+
+<p>git push 후 결과를 확인해보면?</p>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="짜잔">짜잔✅</h1>
+
+<p><img src="/assets/img/categories-dividing/5.PNG" alt="Desktop View" /></p>
+
+<hr />
+
+<p><br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="보시고-미흡한-부분이-있다면-피드백은-언제나-환영합니다">보시고 미흡한 부분이 있다면 피드백은 언제나 환영합니다!</h1>
+
+<p><br />
+<br />
+아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+
+:ET

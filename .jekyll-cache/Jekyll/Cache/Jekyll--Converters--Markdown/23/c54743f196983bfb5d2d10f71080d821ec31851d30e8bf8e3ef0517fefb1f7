@@ -1,0 +1,235 @@
+I"r<p><br /></p>
+
+<blockquote>
+  <h2 id="공부하는-공작새님의-블로그를-참고하여-작성했습니다">‘공부하는 공작새’님의 블로그를 참고하여 작성했습니다.</h2>
+  <p><br />
+<br />
+<br />
+<br />
+<br /></p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <ul>
+    <li>
+      <h1 id="git-fetch">git fetch</h1>
+      <hr />
+      <p>원격저장소(깃허브 인터넷 상)에 있는 변경사항들을 로컬저장소(내 노트북)에 가져오기 전에 변경내용을 확인하고 싶은경우에 사용<br />
+만약 제가 공동으로 작업하는 파일을 github에 올리고 잤어요.<br />
+근데 다음날 누군가 제 파일에 수정을 했는지 안했는지 확인하고 싶을때!<br />
+로컬디렉토리(내 노트북)로 변경한 내용을 가져오지 않고 변경한 내역들만 확인<br />
+그 명령어가 fetch 입니다.</p>
+    </li>
+  </ul>
+</blockquote>
+
+<p><br />
+<br />
+<br />
+실험을 위해 파일을 하나 만들어봅시다!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre><span class="nb">echo</span> <span class="s2">"hiya it's me Joonhwan!"</span> <span class="o">&gt;</span> yes.txt
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>그 후 git add ~ push 를 통해 원격저장소에 올려줍시다, 이제 깃허브로 가보면
+<br />
+<br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>이제 여기서 직접 수정해줍시다</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/2.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>완료 후 맨 아래에 내려가서 <code class="language-plaintext highlighter-rouge">commit changes</code> 클릭</p>
+
+<p><br />
+ <br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre> git fetch 원격저장소 이름
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>저는 origin 이라서     <code class="language-plaintext highlighter-rouge">git fetch origin</code> 으로 했습니다</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/3.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<p>그 후</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre>git fetch <span class="nt">-r</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>해당 명령어를 치면 fetch 확인 가능한 브랜치 내역들이 나옵니다<br />
+자 저는 <code class="language-plaintext highlighter-rouge">origin/gh-pages</code>  <code class="language-plaintext highlighter-rouge">origin/main</code> 2가지가 있는데 origin/main 을 선택하겠습니다.</p>
+
+<p><br />
+<br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre>git checkout origin/main
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/4.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>빨간 네모를 잘 봐주시고 이제 깃허브로 갑시다</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/5.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+action을 눌러 저는 해당되는 숫자를 찾아 클릭해보니 
+<br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/6.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>자 원격저장소에서는 바뀌었지만 로컬저장소(내 노트북)에서는 어떨까?<br />
+바로 확인해봅시다.</p>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/7.PNG" alt="Desktop View" /></p>
+
+<p><br /></p>
+
+<p>오! git fetch는 원격저장소만 수정하고 내 로컬저장소는 수정하지 않군요.<br />
+여기까지가 git fetch이고 이어서 git pull 합니다 ㅎ</p>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<hr />
+
+<blockquote>
+  <h4 id="-잠깐-혹시-git-push-하다가-오류나서-git-status-쳤는데-이런-오류가-떳다면-여기를-참고해주세요-ㅎ">❗ 잠깐 혹시 <code class="language-plaintext highlighter-rouge">git push</code> 하다가 오류나서 <code class="language-plaintext highlighter-rouge">git status</code> 쳤는데 이런 오류가 떳다면 여기를 참고해주세요 ㅎ</h4>
+  <hr />
+  <p><img src="/assets/img/git-error/head-detached-at/1.PNG" alt="Desktop View" /></p>
+</blockquote>
+
+<h3 id="head-detached-at-오류-해결하러가기"><a href="https://joonhwan2.github.io/posts/git-fetch-head-detached/">HEAD detached at 오류 해결하러가기!</a></h3>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<hr />
+
+<blockquote>
+  <ul>
+    <li>
+      <h1 id="git-pull">git pull</h1>
+      <hr />
+    </li>
+  </ul>
+</blockquote>
+
+<p><img src="/assets/img/git/fetch-pull/8.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <p>이번에 깃허브로 들어가서 이렇게 고쳐봤습니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre>git pull origin main
+git push 여기까지  
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/img/git/fetch-pull/9.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p>자 아까랑 똑같은 방법으로 깃허브 -&gt; action -&gt; 해당되는 숫자 클릭을하면 변화를 보실 수 있을겁니다.<br />
+그 후 노트북의 그 파일을 열어보면</p>
+
+<p><br />
+<br />
+<br /></p>
+
+<p><img src="/assets/img/git/fetch-pull/10.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br /></p>
+
+<p>git pull은 제 노트북의 자료도 동일화 시키네요!<br />
+자 이로서 <code class="language-plaintext highlighter-rouge">git fetch</code>와 <code class="language-plaintext highlighter-rouge">git pull</code>차이를 알아보았습니다. 자료들이 도움이 됬길 바랍니다 ㅎㅎ</p>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<p>아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+
+<hr />
+
+<h1 id="참고-">참고  </h1>
+<hr />
+
+<p>‘공부하는 공작새’        <a href="https://chaeyoung2.tistory.com/43">git fetch pull 사용법, fetch pull 차이점 알아보기</a></p>
+:ET

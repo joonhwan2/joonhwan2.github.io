@@ -1,0 +1,133 @@
+I"�<p><br /></p>
+
+<blockquote>
+  <h2 id="공대-아로마님의-블로그를-참고하여-작성했습니다">‘공대 아로마’님의 블로그를 참고하여 작성했습니다.</h2>
+  <p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+</blockquote>
+
+<p><br />
+<br /></p>
+
+<blockquote>
+  <h1 id="문제-발생-">🚨문제 발생  </h1>
+  <p><code class="language-plaintext highlighter-rouge">git fetch origin/main</code> 을 한 후<br />
+<code class="language-plaintext highlighter-rouge">git push origin main</code>후 오류가 뜸<br />
+<code class="language-plaintext highlighter-rouge">git status</code>을 하였더니 사진과 같은 오류</p>
+
+  <ul>
+    <li>사진 참고</li>
+  </ul>
+</blockquote>
+
+<p><br />
+<br /></p>
+
+<p><img src="/assets/img/git-error/head-detached-at/1.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<blockquote>
+  <h1 id="내가-해결한-방법">🔑내가 해결한 방법</h1>
+  <h4 id="저는-git-연습할-겸-빠른-해결법을-사용하지-않았습니다">(저는 git 연습할 겸 빠른 해결법을 사용하지 않았습니다)</h4>
+</blockquote>
+
+<p><br />
+<br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td> --><td class="rouge-code"><pre>git branch
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>깃 브랜치 보유상태 확인 명령어</p>
+
+<p><img src="/assets/img/git-error/head-detached-at/3.PNG" alt="Desktop View" /></p>
+
+<p><br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td> --><td class="rouge-code"><pre>git branch joonhwan              <span class="o">(</span><span class="sb">`</span>준환<span class="sb">`</span> 브랜치 만들기<span class="o">)</span>  <span class="sb">`</span>준환<span class="sb">`</span> 브랜치가 없는 경우 가능 
+git checkout joonhwan            <span class="o">(</span><span class="sb">`</span>준환<span class="sb">`</span>을 주요 브랜치로 쓰겠다<span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <h3 id="참고-ㅎ">참고 ㅎ</h3>
+  <ul>
+    <li>git checkout -b joonhwan <br />
+준환을 주요 브랜치로 만들어 쓰겠다<br />
+(준환 브랜치를 만들지 않은경우 가능)</li>
+  </ul>
+</blockquote>
+
+<p><img src="/assets/img/git-error/head-detached-at/4.PNG" alt="Desktop View" /></p>
+
+<p>이어서</p>
+
+<p><br /></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td> --><td class="rouge-code"><pre>git branch <span class="nt">-D</span> candy              <span class="o">(</span> candy 브랜치 제거<span class="o">)</span>
+git branch <span class="nt">-D</span> water              <span class="o">(</span> water 브랜치 제거<span class="o">)</span>
+git branch <span class="nt">-D</span> main               <span class="o">(</span> main 브랜치 제거<span class="o">)</span>
+git branch <span class="nt">-m</span> joonhwan main      <span class="o">(</span>브랜치 joonhwan -&gt; main<span class="o">)</span>
+git push origin main
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h1 id="끝">끝</h1>
+
+<h1 id="준환과-함께-깃-명령어-알아보러-가기"><a href="https://joonhwan2.github.io/posts/git-add/">준환과 함께 깃 명령어 알아보러 가기🤓</a></h1>
+
+<p><br />
+<br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h2 id="보시고-미흡한-부분이-있다면-피드백은-언제나-환영합니다">보시고 미흡한 부분이 있다면 피드백은 언제나 환영합니다!</h2>
+
+<p><br />
+<br />
+아래 사진을 클릭하면 <code class="language-plaintext highlighter-rouge">제 취미공간</code>으로 이어집니다 ㅎㅎ 여기에서 메모 및 일상을 기록하는데 놀러오실 분들은 언제나 환영합니다!</p>
+
+<p><br /></p>
+
+<h1 id="링크로-이동하려면-사진을-클릭">링크로 이동하려면 사진을 클릭</h1>
+
+<p><a href="https://discord.gg/zkzk5xtm"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&amp;usqp=CAU" alt="어서오셔 ㅎ" /></a></p>
+
+<p><br />
+<br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="참고">참고</h1>
+
+<p>‘공대 아로마’    <a href="https://aroma-dev.tistory.com/4">git push가 안 될 때 / detached HEAD 문제 해결 방법</a></p>
+
+<p><br /></p>
+:ET
