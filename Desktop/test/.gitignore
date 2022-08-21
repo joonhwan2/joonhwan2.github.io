@@ -6,11 +6,18 @@
 !.travis.yml
 !.husky
 !.commitlintrc.json
-!.versionrc.json
+!.versionrc.
+!.jekyll-cache
+!_includes 
+!_javascript      
+!_layouts 
+!_sass              
+!gulpfile.js
 
 # bundler cache
 _site
 vendor
+Gemfile.lock
 
 # rubygem
 *.gem

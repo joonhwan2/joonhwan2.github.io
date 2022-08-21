@@ -9,6 +9,7 @@ theme: jekyll-theme-chirpy
 
 # Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
 # and doesn't have a custom domain.
+#the subpath of your site, e.g. /blog
 #사용자 페이지를 만든 경우 공란, 프로젝트 페이지를 만든 경우 프로젝트 명 기입
 baseurl: ''
 
@@ -30,14 +31,11 @@ title: 고준환                          # the main blog title, 블로그 맨 �
 
 tagline: '어서오시게'   # it will display as the sub-title,  (부제목 첫 페이지 좌측에서 확인가능)
 
-description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
-
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://joonhwan2.github.io'
 
 github:
-  username: joonhwan2            # change to your github username
+  username: joonhwan2             # change to your github username
 
 twitter:
   username: twitter_username            # change to your twitter username
@@ -46,7 +44,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: 고준환 J.K
-  email: rhwnsghks97.gmail.com            # change to your email address
+  email: rhwnsghks97.gmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username      # change to your twitter homepage
@@ -55,7 +53,7 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification:               # fill in to your verification string
+google_site_verification: google_meta_tag_verification              # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
@@ -78,28 +76,26 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # [light|dark]  공란으로 비워두면 빛 암흑모드 둘다 적용, 혹은 둘중 하나만 적으면됨
+theme_mode:   # [light|dark]   공란으로 비워두면 빛 암흑모드 둘다 적용, 혹은 둘중 하나만 적으면됨
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
-# e.g. 'https://cdn.com'
-img_cdn:   #이거 공란으로 안두면 프사 안나옴
+# e.g. 'https://cdn.com'   #이거 공란으로 안두면 프사 안나옴
+img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: '/assets/img/icon.jpg'
+avatar: /assets/img/icon.jpg
 
 # boolean type, the global switch for ToC in posts.
-toc: true
-provider: utterances
-utterances:
-  comments: true
-  active:         # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
-  # The active options are as follows:
-  disqus:
-    shortname: joonhwan2   # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-  # utterances settings › https://utteranc.es/
+toc: true  # toc(Table of contents)   블로그에 포스팅 옆에서 스크롤을 따라오는 목차
+                       # 사용 true   미사용 false
+provider: utterences
+disqus:        #댓글기능
+  comments: true          #사용 true   미사용 false
+  shortname: joonhwan2
+  utterances:
     repo:         # <gh-username>/<repo>
     issue_term:   # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
