@@ -35,6 +35,7 @@ date: 2022-09-07
 ### 1-1 &nbsp; 로컬디스크C에  미리 `nodejs_pharmacy 폴더` 만들어 놓기
 
 <br>
+
 미리 로컬디스크C에 nodejs_pharmacy 폴더를 만들어 놓은 후\
 이제 cmd로 들어갑시다, C:\Users\rhwns> 이경로가 나와서   `cd ..` 을 2번 입력해줍시다  그러면 경로 하나씩 지워지면서\
 C:/> 이쪽으로 경로가 바뀝니다 이제 여기서 cd nodejs_pharmacy 입력 ㄱㄱ
@@ -45,24 +46,21 @@ C:/> 이쪽으로 경로가 바뀝니다 이제 여기서 cd nodejs_pharmacy 입
 ```console
 npm init
 ```
+<br> 
 
-![Desktop View](/assets/img/error/npm/npm init error.PNG)
+![Desktop View](/assets/img/error/npm/1.PNG)
 
+<br>
+
+이렇게 나옵니다 근데 당황하진 맙시다! 왜냐하면 우린 고칠 수 있으니까!
+### [이걸 클릭]()
+
+<br>
 > h1은 = 3개<br>
 > h2는 - 3개<br>
 > `#` 는 6개까지 가능
 ```
-이건 H1
-===
-이건H2
----
-```
 
-이건 H1
-===
-이건H2
----
-![Desktop View](/assets/img/md/2.PNG)
 <br>
 <br>
 <br>
