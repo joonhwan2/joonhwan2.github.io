@@ -1,5 +1,5 @@
 ---
-title:  "[api] Node.js & 공공데이터포털(전국약국조회) & 네이버 지도 api를 이용해 내 위치기반 약국들 찾기"
+title:  "Node.js & 네이버지도로 내 근처 약국들 찾기 1"
 categories: [developer-tools, api, Node.js]
 tags: [api]
 toc: true
@@ -29,7 +29,7 @@ date: 2022-09-07
 <br>
 
 ---
-# 1 &nbsp; 폴더 만들기 및 공공데이터포털, 네이버api 가입
+# 1 &nbsp; 폴더 만들기, 네이버api 가입, 공공데이터 포털
 ---
 
 ### 1-1 &nbsp; 로컬디스크C에  미리 `nodejs_pharmacy 폴더` 만들어 놓기
@@ -53,45 +53,338 @@ npm init
 <br>
 
 이렇게 나옵니다 근데 당황하진 맙시다! 왜냐하면 우린 고칠 수 있으니까!
-### [이걸 클릭](https://joonhwan2.github.io/posts/npm-init-error/)
+### [오류를 고치기 위해 이걸 클릭](https://joonhwan2.github.io/posts/npm-init-error/)
 
 <br>
-> h1은 = 3개<br>
-> h2는 - 3개<br>
-> `#` 는 6개까지 가능
+<br>
+
+자 오류를 해결했으면 이 경로에서 C:\nodejs_pharmacy> 이어서 입력합시다
+```console
+npm init
+```
+이거 입력하면
+어떤 항목들이 나오는데 쭉 엔터하다가 마지막에\
+`is this OK? (yes)` 라는 문장이 나오는데 여기서 y입력을 하고 엔터누르면 `package.json`이 생성됩니다.\
+저 파일을 들어가보면 버젼은 어떻고 메인으로 index.js 파일을 써라 등 기본정보가 나와있습니다.
+
+이제 이어서 
+```console
+npm install express
+```
+입력 후 잘 설치가되었다면 현재 경로에 `폴더 node_modules` 그리고 `package-lock.json`이 생성되어 있을 것입니다.
+<br>
+<br>
+<br>
+<br>
+<br>
+
+이제 `index.js` 파일을 만들어줍시다.
+
+```javavsript
+let express = require("express");                           // 1
+let app = express ();                                       // 2
+let port = process.env.PORT || 80;                // 포트 80 변수 선언
+app.use(express.static("public_html"));                     // 3
+
+
+app.listen(port,function(){                                  //4
+    console.log("HTML 서버 시작됨")
+})
+```
+1) &nbsp; express모듈을 선언   +   어떤 모듈을 쓸건지 require로 지정   =    이제 이 구문을 통해 express모듈이 사용 가능한 상태가 됨
+2) &nbsp; app 이라는 변수 하나를 더 선언하여 express객체를 할당하자     이제 이 구문을 통해 app이라는 변수는 express 모듈을 가르키게 됨
+3) &nbsp; express의 use 메소드를 선언하고 express.static이라고 괄호 사이에 입력한 후  public_html 로 지정하겠다\
+&nbsp; 이제 public_html 폴더 아래에 있는 모든 파일들은 app.use 즉 express 모듈의 웹서버가 구동되게함
+4) express 서비스가 작동될 포트 지정 보통 80번 많이씀 그리고 포트 열렸는지 확인해주기위해 콘솔을 적음\
+app.listen에 port를 사용해주고 이건 사용되기 이전에 선언되야 하니 위에 포트 80변수를 선언해주자\
+★ 사실 nodejs heroku를 작동시킬때 `process.env.PORT || 80;` 이 포트환경설정 문구가 있으면 헤로쿠에서도 작동이 잘된다.
+console.log 추가후 잘 작동되는지 확인해봅시다
+```javascript
+node index.js
+```
+입력합시다, 잘 나온다면 아래와 같은 사진처럼 나올겁니다.
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/1.PNG)
+
+<br>
+<br>
+
+이를 통해 정상적으로 app.listen이 진행되어 80번 포트가 열려있고 html서버가 express모듈을 통해 실행되면서\
+80번 포트를 통해 제공되는걸 알 수 있습니다.
+
+<br>
+<br>
+<br>
+
+app.use에 적었던 것과 같이 이제 같은 경로에 `public_html 폴더` 만들어줍시다, 그 폴더 안에 있는 내용이 웹서버로 서비스됨.\
+vscode에서 ctr + n 눌러 새로운 파일을 생성후 ctr + s 눌러서 public_html 안에 index.html로 저장해주고 index.html에 `ㅎㅇ루` 입력한 뒤\
+주소창에 localhost 쳐봅시다.
+
+<br>
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/2.PNG)
+
+<br>
+
+위의 화면처럼 안나오고 혹시 아래 화면과 같이 나온다면
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/3.PNG)
+
+<br>
+<br>
+
+또잉?   &nbsp;&nbsp;이유는 아래사진을 보면 나옵니다
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/4.PNG)
+
+<br>
+<br>
+<br>
+<br>
+
+그건 `node index.js`가 꺼져있기 때문에 다시 틀어주면 됩니다!\
+편한 방법으로 vscode 터미널에서 화살표 방향 윗키 누르면 그 명령어 다시 불러옵니다.\
+이제 그러고 다시 주소창에 localhost  친곳에서 강력한 새로고침 (ctr + shirt + r) 누르면 홈페이에 `ㅎㅇ루` 나올겁니다.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### 1-2 &nbsp; 네이버 지도 api 불러오기
+
+<br>
+<br>
+
+ncloud.com -> 회원가입 --> 로그인 --> 우측상단 콘솔
+검색 --> naver api --> 이렇게 나온다 aiㆍnaver api --> application
+--> application 등록 --> 약국찾기인 경우 Maps 선택
+
+> 다 선택해도 상관없는데 저의 경우는 나머지는 체크 해제하고 이거 3개만 체크하였습니다.
+> * Web dynamic Map   (웹페이지에 지도를 띄우기 위함)
+> * geocoding   (위도 경로 좌표를 주소로 변환)
+> * Reverse Geocoding  (주소를 위도 경로로 변환)
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/5.PNG)
+
+<br>
+
+인증정보🔑 옆에있는 `수정` 클릭하면 아래와 같은 사진이 보일겁니다.
+<br>
+
+★참고 `인증정보🔑` 이거 나중에 필요합니다. 클릭하여 안에 들어가보면\
+client id, client secret 값이 나오는데 네이버 지도를 띄울때 사용됩니다.
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/6.PNG)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+URL란에 추가 -> 등록 &nbsp;&nbsp;&nbsp;&nbsp; http://localhost 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+이제 지도를 불러옵시다, 2가지방법중 아무거나
+1. 검색 -> 네이버 지도 예제
+2. https://navermaps.github.io/maps.js/docs/tutorial-digest.example.html
+
+<br>
+
+`지도 기본 예제` 클릭후 아래로 내리면 이런 코드가 보일겁니다
+```javascript
+//지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+
+//옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+var map = new naver.maps.Map(mapDiv);
+```
+html요소의 id를 넣어주면 그 id를 기반으로 네이버 지도 api가 작동한다는 내용이다.
+
+<br>
+<br>
+<br>
+
+이제 index.html로 가서 내용을 수정합시다.<br>
+head태그 - 디자인적인 부분은 아니지만 상단에 정의되야할 부분을 미리 정의해줌&nbsp;&nbsp;&nbsp;
+ex) 제목, CSS부분, script(자바스크립트 부분) 등\
+<br>
+body태그 - 실제 본문
+
+```html
+<html>
+    <head>
+        <script type ="text/javascript" src="주소"></script>
+    </head>
+        <body>
+
+        </body>
+</html>
+```
+
+<br>
+<br>
+
+자 이제 주소를 찾기 위해 아까 열었던 `지도 기본 예제`로 갑시다 
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/7.PNG)
+
+<br>
+<br>
+
+지도 기본 예제의 흰공간 --> 우클릭으로 페이지소스 보기 --> ctr f 로 script 검색 후 open api 내용 한줄 쭉 복사후\
+기존 <script type 부분을 없앤 후 index.html에 붙여넣기합시다
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/8.PNG)
+
+<br>
+<br>
+그럼 아래사진처럼 됩니다
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/9.PNG)
+
+id는 아까 `인증정보🔑` 이거 있던곳에서 저걸 클릭하여 아이디 복붙해서 바꿔주면되고\
+submodule은 geocoder만 남겨놓으면 됩니다 geocoder는 `주소 ->좌표`, `좌표 -> 주소` 를 바꿔주는 기능을 하기때문에 꼭 필요합니다\
+여기까지 코드는 이렇게 됩니다.
+
+```html
+<html>
+    <head>
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=보안을 위해 제 아이디 입력 안함&amp;submodules=geocoder"></script>
+    </head>
+        <body>
+
+        </body>
+</html>
+```
+이제 편의성을 위해 jquery cdn을 사용하겠습니다.\
+구글검색 -> jquery cdn
+
+<br>
+<br>
+<br>
+
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/10.PNG)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+2022.09.08 기준으로 제일 최신버젼인 3.x를 사용합시다 그리고 `minified` 클릭하면 <script> 코드들이 나오는데 싹 다 복사하여 <script type -- 바로 아래에 붙여줍시다 하게된다면 코드는 이렇게 됩니다
+                                                                                            
+ ```html
+ <html>
+    <head>
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=보안을 위해 제 아이디 입력 안함&amp;submodules=geocoder"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="crossorigin="anonymous"></script>
+    </head>
+        <body>
+
+        </body>
+</html>                                                                                           
+ ```      
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ 
+이제 `naver map api` 그리고 그 아래줄에 `제이쿼리`도 활성화 됩니다. 이제 디자인적 요소를 넣기위해 body태그 안에 div객체를 만듭시다,\
+이 div객체가 `네이버지도`가 들어올 곳입니다.
+
+* 우선 div 객체의 id에 map으로 설정하겠습니다 스타일은 폭 100% 너비 80%
+* 그위에 div객체 하나 더 생성해 `약국지도💊` 입력 후 스타일 지정해줍시다 `상단여백 20픽셀`, `하단여백 10픽셀`, `글자 굵게 보이기`
+* body 태그 안에 script 구문 추가 document가 ready상태일때 function(기능)을 하기위해 코드를 넣어야하는데\
+그건 아까 `지도 기본 예제`에 있던 코드 복사하면 된다.
+
+<br>
+<br>
+<br>
+
+```html
+<head>     
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=보안을 위해 제 아이디 입력안함&amp;submodules=geocoder"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>    
+    <body>
+        <div style="margin-top: 20px; margin-bottom: 10px; font-weight: bold;">
+            약국 지도💊
+        </div>
+        <div id="map" style="width:100%; height:80%">
+
+        </div>
+    </body>
+        <script>
+            $(document).ready(function(){
+                //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+
+                //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                var map = new naver.maps.Map(mapDiv);
+            });
+        </script>
 ```
 
 <br>
 <br>
 <br>
-<br>
 
-```
-# 이거 H1
-## 이거 H2
-### 이거 H3
-#### 이거 H4
-##### 이거 H5
-###### 이거 H6
-```
-
-# 이거 H1
-## 이거 H2
-### 이거 H3
-#### 이거 H4
-##### 이거 H5
-###### 이거 H6
-
----
+이제 다시 그 localhost 홈페이지로 가서 ctr + shift + r (강력 새로고침)하면 아래처럼 지도가 빰!
 
 <br>
 <br>
+<br>
+<br>
 
----
-# 2 줄 긋기
----
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/11.PNG)
 
+<br>
+<br>
+<br>
 
+나머지는 이따가 일어나서 마저 할께요ㅎ
 
 <br>
 <br>
