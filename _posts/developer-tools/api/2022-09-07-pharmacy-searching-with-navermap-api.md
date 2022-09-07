@@ -92,12 +92,14 @@ app.listen(port,function(){                                  //4
 })
 ```
 
-1) &nbsp; express모듈을 선언   +   어떤 모듈을 쓸건지 require로 지정   =    이제 이 구문을 통해 express모듈이 사용 가능한 상태가 됨\
-2) &nbsp; app 이라는 변수 하나를 더 선언하여 express객체를 할당하자     이제 이 구문을 통해 app이라는 변수는 express 모듈을 가르키게 됨\
+1) &nbsp; express모듈을 선언   +   어떤 모듈을 쓸건지 require로 지정   =    이제 이 구문을 통해 express모듈이 사용 가능한 상태가 됨
+2) &nbsp; app 이라는 변수 하나를 더 선언하여 express객체를 할당하자     이제 이 구문을 통해 app이라는 변수는 express 모듈을 가르키게 됨
 3) &nbsp; express의 use 메소드를 선언하고 express.static이라고 괄호 사이에 입력한 후  public_html 로 지정하겠다\
 &nbsp; 이제 public_html 폴더 아래에 있는 모든 파일들은 app.use 즉 express 모듈의 웹서버가 구동되게함
 4) express 서비스가 작동될 포트 지정 보통 80번 많이씀 그리고 포트 열렸는지 확인해주기위해 콘솔을 적음\
-app.listen에 port를 사용해주고 이건 사용되기 이전에 선언되야 하니 위에 포트 80변수를 선언해주자\
+app.listen에 port를 사용해주고 이건 사용되기 이전에 선언되야 하니 위에 포트 80변수를 선언해주자
+
+<br>
 ★ 사실 nodejs heroku를 작동시킬때 `process.env.PORT || 80;` 이 포트환경설정 문구가 있으면 헤로쿠에서도 작동이 잘된다.\
 console.log 추가후 잘 작동되는지 확인해봅시다
 ```javascript
