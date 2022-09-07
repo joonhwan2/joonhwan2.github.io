@@ -1,6 +1,6 @@
 ---
 title:  "[api] Node.js & 공공데이터포털(전국약국조회) & 네이버 지도 api를 이용해 내 위치기반 약국들 찾기"
-categories: [api, Node.js]
+categories: [developer-tools, api, Node.js]
 tags: [api]
 toc: true
 toc_sticky: true
@@ -53,7 +53,7 @@ npm init
 <br>
 
 이렇게 나옵니다 근데 당황하진 맙시다! 왜냐하면 우린 고칠 수 있으니까!
-### [이걸 클릭]()
+### [이걸 클릭](https://joonhwan2.github.io/posts/npm-init-error/)
 
 <br>
 > h1은 = 3개<br>
@@ -112,7 +112,7 @@ npm init
 
 # 링크로 이동하려면 사진을 클릭
 
-[![어서오셔 ㅎ](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&usqp=CAU)](https://discord.gg/zkzk5xtm)
+[![어서오셔 ㅎ](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&usqp=CAU)](https://discord.com/channels/976352361142452234/976352361142452239)
 
 
 ---
