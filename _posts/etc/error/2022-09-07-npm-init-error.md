@@ -38,47 +38,86 @@ npm init
 
 > # 🔑내가 해결한 방법 
 
-```bash
-git pull origin main
+## 1  &nbsp; `windowspowershell`을 입력하여 관리자로 실행합시다
+<img src="/assets/img/error/npm/2.PNG" width="500" height="500">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<br>
+<br>
+<br>
+
+## 2  &nbsp; 권한상태 확인
+
+<br>
+
+<img src="/assets/img/error/npm/3.PNG" width="700" height="600">
+
+```console
+ get-ExecutionPolicy
+ ```
+ 이걸 입력해보면 Restricted 라고 나올겁니다
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## 3  &nbsp; 권한변경 및 변경이 잘 되었는지 확인
+
+<br>
+
+![Desktop View](/assets/img/error/npm/4.PNG)
+
+<br>
+<br>
+<br>
+
 ```
-을 해보았더니
+- 권한 상태값 참고
 
-> fatal: Couldn't find remote ref main.  Unexpected end of commands stream
+ Restricted : default설정값으로, 스크립트 파일을 실행할 수 없습니다.
 
-<br>
+ AllSigned : 신뢰할 수 있는(서명된) 스크립트 파일만 실행할 수 있습니다.
 
+ RemoteSigned : 로컬에서 본인이 생성한 스크립트와, 신뢰할 수 있는(서명된) 스크립트 파일 실행할 수 있습니다.
 
+ Unrestricted : 모든 스크립트 실행가능
 
-![Desktop View](/assets/img/git-error/git-push/4.PNG)
+ ByPass : 경고/차단 없이 모든 것을 실행가능하도록함
 
-<br>
-<br>
-<br>
-
-```bash
-$git fetch origin
-```
-맨 밑줄에 unrelated histories가 있다 그러면 병합해주자!
-
-<br>
-
-![Desktop View](/assets/img/git-error/git-push/5.PNG)
-
-<br>
-<br>
-<br>
-
-```bash
-git pull origin --allow-unrelated--histories
+ Undefined : 권한을 설정하지 않겠음
 ```
 
-![Desktop View](/assets/img/git-error/git-push/6.PNG)
+<br>
+<br>
+<br>
+
+```console
+Set-ExecutionPolicy RemoteSigned
+```
+입력후 y 입력하고 엔터 
+
+```console
+ get-ExecutionPolicy
+ ```
+그리고 `RemoteSigned`로 변경이 잘 되었는지 확인해봅시다\
+다 되었다면 vscode나 cmd에서 npm init 입력하였을때 잘 작동할겁니다!
 
 <br>
-그 후 git push로 해결 완료!
-
-
-
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -96,7 +135,7 @@ git pull origin --allow-unrelated--histories
 
 # 링크로 이동하려면 사진을 클릭
 
-[![어서오셔 ㅎ](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&usqp=CAU)](https://discord.gg/zkzk5xtm)
+[![어서오셔 ㅎ](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk-zPB4TCuWRNJVIF0aWgniDPNJgUTdXmILg&usqp=CAU)](https://discord.com/channels/976352361142452234/976352361142452239)
 
 
 
