@@ -598,6 +598,35 @@ getLocation을 실행할때 await을 하나 더 넣어줍시다
 <br>
 <br>
 <br>
+
+### 1-3 &nbsp; 공공데이터 사용
+
+<br>
+
+주소창에 [data.go.kr](https://www.data.go.kr/) --> 로그인 --> 검색 : `국립중앙의료원_전국 약국 정보 조회 서비스` --> 신청\
+
+<br>
+이제 마이페이지에서 약국서비스를 선택한 후 조금 내려오면 
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/13.png)
+
+<br>
+확인 -> 미리보기 -> 주소창 복사하여 일단 index.js에 아무곳에나 주석처리하여 보관
+https://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire?serviceKey=mL6hpE93V2cGEHnZNYbp2kbpZIm2IFyc9rhdh2wIaUseyjghN%2FlJSV7tSchmbL47mZsX8gNcLVtGpsTxQkstdA%3D%3D&Q0=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C&Q1=%EA%B0%95%EB%82%A8%EA%B5%AC&QT=1&QN=%EC%82%BC%EC%84%B1%EC%95%BD%EA%B5%AD&ORD=NAME&pageNo=1&numOfRows=10
+
+<br>
+<br>
+
+이제 index.js 로 가보면 app.use를 통해 웹 서버를 열은 것을 알 수 있는데,\
+한 페이지만 따로 app.get을 사용하여 열어봅시다, 열기위해 사용할 페이지 이름은 pharmach_list
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
