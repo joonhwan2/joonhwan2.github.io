@@ -618,7 +618,9 @@ https://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoIn
 <br>
 
 이제 index.js 로 가보면 app.use를 통해 웹 서버를 열은 것을 알 수 있는데,\
-한 페이지만 따로 app.get을 사용하여 열어봅시다, 열기위해 사용할 페이지 이름은 pharmach_list
+한 페이지만 따로 app.get을 사용하여 열어봅시다, 열기위해 사용할 페이지 이름은 pharmach_list\
+pharmach_list로 접속했을 때 웹서버이기에 접속한 클라이언트들에게 어떤 데이터를 내보낼지 결정 가능,\
+그리고 `req`, `res`변수를 넣어줍시다. 
 <br>
 <br>
 <br>
