@@ -387,7 +387,208 @@ submodule은 geocoder만 남겨놓으면 됩니다 geocoder는 `주소 ->좌표`
 <br>
 <br>
 
-나머지는 이따가 일어나서 마저 할께요ㅎ
+<del>문제가 하나 있는데 접속한 사람의 위치에 따른 지도가 떠야하는 것이다</del>, 위도와 경도정보를 등록합시다
+<br>
+<br>
+1) 이제 function을 하나 만들어봅시다 이름은 getLocation으로, 사용할 객체는 navigator.geolocation (gps 관련 객체)
+
+2) navigator.geolocation.getCurrentPosition 이걸 사용하면 현재 위치를 알 수 있습니다, 그 인자로\
+function을 적고 position 이라는 객체를 통해 현 위치를 알 수 있습니다.
+
+3) getLocation은 위도, 경도 2개를 반환해야하기 때문에 미리 객체를 만들어줍시다\
+let XY로 XY변수를 Object형으로 선언해줍시다.\
+그리고 XY.lat, XY.lng 옵션에 각각 위도, 경도값 저장해줍시다.
+
+4) 아래엔 XY를 return해줍시다 = 현재위치의 XY좌표(위도, 경도) 반환
+<br>
+★참고 `getCurrentPosition` 이게 비동기형이라 이대로 하면 문제가 됨 즉 동기형으로 바꾸어주어야 한다
+
+5) 일단 잘 작동되는지 확인하기위해 getLocation을 실행하고 거기서 return된 값을 XY로 받아 alert로 경도,위도값 띄워봅시다
+
+```javascript
+</body>
+        <script>
+            $(document).ready(function(){
+                let XY = getLocation();                 // 5
+                alert("위도" + XY.lat);
+                alert("경도" + XY.lng);
+                //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+
+                //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                var map = new naver.maps.Map(mapDiv);
+            });
+            
+            function getLocation() {                            // 1
+                let XY = new Object();           // 3-1
+                if(navigator.geolocation) {                      // 2
+                    navigator.geolocation.getCurrentPosition(function(position){
+                        //위도 position.coords.latitude
+                        //경도 position.coords.longitude
+                        XY.lat = position.coords.latitude;           // 3-2
+                        XY.lng = position.coords.longitude;
+                    });
+                }
+                return XY;              // 4
+            }
+        </script>
+```
+
+<br>
+<br>
+<br>
+
+자 이상태로 바로 localhost 보면 안 나올수도 있기때문에 vscode 종료하고 localhost홈페이지도 끄고 둘다 다시 재실행시킵시다.\
+그러면 아래와 같은 사진과 함께 이 2문구가 나올겁니다, `위도 undefined`   `경도 undefined`
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/12.png)
+지도가 잘 나오지않는데 그 이유는 그 이유는 아까 말씀드린대로 `getCurrentPosition`가 비동기형이기때문입니다\
+이제 동기형으로 바꿔주기위해 코드를 수정합시다
+
+기존 alert 2줄 위치를 XY.lat, XY.lng 아래로 옮긴 후 확인해보면 위도, 경도와 함께 지도가 잘 나옵니다
+
+
+```javascript
+        <script>
+            $(document).ready(function(){
+                let XY = getLocation();
+
+                //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+
+                //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                var map = new naver.maps.Map(mapDiv);
+            });
+            
+            function getLocation() {
+                let XY = new Object();
+                if(navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position){
+                        //위도 position.coords.latitude
+                        //경도 position.coords.longitude
+                        XY.lat = position.coords.latitude;
+                        XY.lng = position.coords.longitude;
+                        alert("위도" + XY.lat);
+                        alert("경도" + XY.lng);
+                    });
+                }
+                return XY;
+            }
+        </script>
+```
+자, `function getLocation() {`  &nbsp;&nbsp;&nbsp;&nbsp; 여기부터는 비동기입니다 getLocation이 비동기이기 때문에,\
+무슨 말이냐면 if 구문안의 식이 진행되다가 밑의 alert까지 읽기 전에 XY.lat에서 값을 return 할 수도 있다는 얘기입니다.
+<br>
+
+ex) 휴대폰으로 햄버거세트를 10개 주문하여 주문프로그램에서 그걸 인지하고 그 주문정보를 나에게 다시 반환해주었는데\
+정작 나의 주문량은 7개로 되어있음
+
+<br>
+<br>
+
+### 비동기형 -> 동기형&nbsp;&nbsp;&nbsp;(전환)
+1) `function getLocation() {` &nbsp;&nbsp; 앞에 async를 넣음으로써 이 function 안에 비동기구문이 있다고 표시
+
+2) `getCurrentPosition`을 promise 객체를 통해 재정의
+```javascript
+let XY = new Object();
+if(navigator.geolocation) {
+```
+이곳 바로 아래에 추가
+
+```javascript
+            let promise = new Promise((resolve, rejected) => {
+                        navigator.geolocation.getCurrentPosition((position) =>{
+                            
+                        });
+                    });
+```
+`=>`는 function으로 지정한 부분과 같은 역할을 수행, 그리고 `getCurrentPosition`이 실행될 때\
+resolve를 적고 그 인자로 position을 적으면 `getCurrentPosition`을 Promise로 감싸고 또 성공했을 때\
+position 객체를 반환하며 실패하면 rejected
+
+3) 아래에 이어서 position 변수 생성하고 선언한 후 await 합시다\
+Promise 변수는 getCurrentPosition을 가리키며 await(끝날때까지 기다림)해줍니다.\
+비동기가 끝나고 나면 이 position 변수에 그 값이 들어와 동기형태를 띄게됨
+
+4) `let position = await promise;`여기서 navigator.geolocation이 한줄없애고 맨 밑의 alert 2문장을 잠시 다른데 보관 그 후, \
+실행해주면 getLocaiton function이 동기식으로 변형됨\
+= 현재의 위치를 받은 후, 동기식으로 마지막에 XY좌표값이 return됨
+
+
+5) 이 코드 아래에 아까 그 alert 두 문장 옮깁시다
+```javascript
+$(document).ready(function(){
+  `let XY = getLocation();  
+```
+
+6) 그리고 이제 이 `getLocation 호출하는 이 function코드`에도 async를 넣어주고,\
+getLocation을 실행할때 await을 하나 더 넣어줍시다
+
+```javascript
+                $(document).ready(function(){
+                    let XY = getLocation();
+---
+---                    
+```
+
+<br>
+
+--->
+
+<br>
+
+```javascript
+                $(document).ready(async function(){
+                    let XY = await getLocation();
+---
+---
+```
+
+<br>
+<br>
+<br>
+
+여기 까지의 코드는 이렇습니다
+```javascript
+            <script>
+                $(document).ready(async function(){
+                    let XY = await getLocation();
+
+                    alert("위도" + XY.lat);
+                    alert("경도" + XY.lng);
+
+                    //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                    var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+
+                    //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                    var map = new naver.maps.Map(mapDiv);
+                });
+                
+                async  function getLocation() {
+                    let XY = new Object();
+                    if(navigator.geolocation) {
+
+                        let promise = new Promise((resolve, rejected) => {
+                            navigator.geolocation.getCurrentPosition((position) =>{
+                                resolve(position);
+                            });
+                        });
+
+                        let position = await promise;
+                        
+                        //위도 position.coords.latitude
+                        //경도 position.coords.longitude
+                        XY.lat = position.coords.latitude;
+                        XY.lng = position.coords.longitude;
+                           
+                    }
+                    return XY;
+                }
+            </script>
+```
+이제 실행해보면 위도, 경도 값 및 네이버지도가 동기식으로 바뀌어 잘 나온다는 것을 알 수 있습니다.
 
 <br>
 <br>
