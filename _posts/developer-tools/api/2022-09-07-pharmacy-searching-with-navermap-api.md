@@ -619,8 +619,73 @@ https://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoIn
 
 이제 index.js 로 가보면 app.use를 통해 웹 서버를 열은 것을 알 수 있는데,\
 한 페이지만 따로 app.get을 사용하여 열어봅시다, 열기위해 사용할 페이지 이름은 pharmach_list\
-pharmach_list로 접속했을 때 웹서버이기에 접속한 클라이언트들에게 어떤 데이터를 내보낼지 결정 가능,\
-그리고 `req`, `res`변수를 넣어줍시다. 
+이제 "/pharmach_list" 이 경로로 접속하는 사용자들에게 자료제공 가능
+
+<br>
+<br>
+<br>
+
+> * 참고
+> * `res(response)` : node.js에서 클라이언트들에게 데이터를 보냄
+> * `req(requests)` : 사용자로부터 전달받는 내용 
+
+<br>
+<br>
+<br>
+
+이제 아래에 `api`라는 변수를 선언허
+* 참고 api.get 역시 비동기식이라 async 입혀줍시다\
+api로 작동시킬 모듈은 `axios`, get메소드를 통해 웹상의 정보를 가져옴
+<br>
+
+아까 주석처리해놓은 주소를 https -> http로 바꾸어 ?앞까지만 복사하여 붙입시다\
+?뒤의 것들은 params라는 변수로 받읍시다 콤마하고 한칸 띄워서 붙이면됩니다,\
+그리고 params는 하나가 아니라 여러개니 대괄호 처리해줍시다
+
+<br>
+
+넣을 항목들
+* `"serviceKey": ""` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ""안에는 serviceKey= 여기 값부터 &QO앞까지만 복사하여 넣으면됩니다 그리고 콤마, 
+* Q0 (2번째인자)    &nbsp;&nbsp;&nbsp; 이곳에 넣을 정보로는 공공데이터포털 -> 마이페이지 -> 약국목록정보 조회 확인 클릭
+* Q1 &nbsp;&nbsp;&nbsp;&nbsp; Q0과 같은방법으로
+* --
+* --
+
+그리고 없어도 되는 값은 넣지 않았습니다. &nbsp;&nbsp;&nbsp;&nbsp; 여기까지의 코드는 아래와 같습니다
+
+```javascript
+app.get("/pharmach_list", (req, res) => {
+    let api = async() => {
+        axios.get("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire", {
+            params: {
+                "serviceKey": "mL6hpE93V2cGEHnZNYbp2kbpZIm2IFyc9rhdh2wIaUseyjghN%2FlJSV7tSchmbL47mZsX8gNcLVtGpsTxQkstdA%3D%3D",
+                "Q0":"서울특별시",
+                "Q1":"강남구",
+                "QT":"",
+                "QN":"",
+                "ORD":"",
+                "pageNo":"1",             //페이지 한개에만 보겠다는 뜻
+                "numOfRows":"1000",       // 보일 목록건수 1000개
+            }
+        })
+    }
+});
+```
+근데 axios.get 역시 비동기형태이기 때문에 동기형으로 바꾸어줍시다\
+awiat를 적어주고 그 결과값을 response라는 변수로 받읍시다, 그걸 위해 그 이전에 response 변수 선언해줍시다\
+초기값 null로 설정후 나중에 아래와같은 데이터로 받게됩니다.
+
+```javascript
+app.get("/pharmach_list", (req, res) => {
+    let response = null
+    let api = async() => {
+        response = await axios.get("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire", {
+            params: {
+---
+---
+---
+```
+20:45부터
 <br>
 <br>
 <br>
