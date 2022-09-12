@@ -673,7 +673,9 @@ app.get("/pharmach_list", (req, res) => {
 ```
 근데 axios.get 역시 비동기형태이기 때문에 동기형으로 바꾸어줍시다\
 awiat를 적어주고 그 결과값을 response라는 변수로 받읍시다, 그걸 위해 그 이전에 response 변수 선언해줍시다\
-초기값 null로 설정후 나중에 아래와같은 데이터로 받게됩니다.
+초기값 null로 설정후 나중에 아래와같은 데이터로 받게됩니다. 그리고 마지막을`return response`로\
+response 객체를 반환합니다. 그럼 이제 pharmach_list로 들어왔을 때\
+이 api결과`(serviceKey, return response 등)`가 출력됨
 
 ```javascript
 app.get("/pharmach_list", (req, res) => {
@@ -684,8 +686,87 @@ app.get("/pharmach_list", (req, res) => {
 ---
 ---
 ---
+    return response;
+});
 ```
-20:45부터
+그리고 위에 axios 모듈을 추가해줍시다.
+```javascript
+let axios = require("axios");
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+잠시 점검! index.js의 여기까지의 코드는 이렇습니다
+```javascript
+let express = require("express");  
+let axios = require("axios");
+
+let app = express ();                                       
+let port = process.env.PORT || 80;                
+app.use(express.static("public_html"));                     
+
+
+app.listen(port,function(){                                  
+    console.log("HTML 서버 시작됨")
+})
+
+app.get("/pharmach_list", (req, res) => {
+    let response = null
+    let api = async() => {
+        response = await axios.get("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire", {
+            params: {
+                "serviceKey": "mL6hpE93V2cGEHnZNYbp2kbpZIm2IFyc9rhdh2wIaUseyjghN%2FlJSV7tSchmbL47mZsX8gNcLVtGpsTxQkstdA%3D%3D",
+                "Q0":"서울특별시",
+                "Q1":"강남구",
+                "QT":"",
+                "QN":"",
+                "ORD":"",
+                "pageNo":"1",
+                "numOfRows":"1000",
+            }
+        })
+    }
+    return response;
+});
+
+```
+이제 axios모듈을 쓰겠다고 정의해주었으니
+```console
+npm install express
+```
+해줍시다.
+
+<br>
+<br>
+<br>
+<br>
+
+이어서
+```console
+node index.js
+```
+입력하게 되면 오잉??
+
+<br>
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/14.png)
+
+<br>
+<br>
+<br>
+
+### 오류 내용 
+* 에러이벤트를 핸들링하지 않았다
+* 80번 포트가 이미 사용중이다
+
 <br>
 <br>
 <br>
