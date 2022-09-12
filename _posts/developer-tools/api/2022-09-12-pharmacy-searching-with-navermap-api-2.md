@@ -156,15 +156,37 @@ index.js에서 serviceKey 바꿔줍시다
 ```javascript
 node index.js
 ```
-입력 후 localhost 들어가봅시다
+입력 후 localhost 들어가서 `F12` 누른 후 아래사진과 같이 순서대로 누르면 리스트가 쫙 나옵니다
 
 ![Desktop View](/assets/img/api/naver-map-api-pharmacy/15.png)
 
+<br>
+<br>
+<br>
+<br>
+
+자 이렇게 나오는 이유는 index.html을 보면 `/pharmach_list` 이 url이 제대로 실행되어 콘솔의 data결과물이\
+console.log로 찍힌 것을 알 수 있습니다.
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/16.png)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ---
-# 1 &nbsp; 폴더 만들기, 네이버api 가입, 공공데이터 포털
+# 2 &nbsp; 공공데이터 포털
 ---
 
-### 1-3 &nbsp; 공공데이터 포털
+
 
 <br>
 
@@ -203,3 +225,5 @@ node index.js
 '소스놀이터' &nbsp;&nbsp;&nbsp;&nbsp;   [Node.Js로 네이버 약국 지도 만들기 #2 (express & axios 모듈, 비동기 문제 해결)](https://www.youtube.com/watch?v=FKQxItpstIk&t=1245s) &nbsp;&nbsp;&nbsp;&nbsp; 30:12 ~
 
  <br>
+
+ '소스놀이터' &nbsp;&nbsp;&nbsp;&nbsp;   [Node.Js로 네이버 약국 지도 만들기 #3 (LAST) (data.go.kr 오픈 API)](https://www.youtube.com/watch?v=XC8vBN_WhYs) &nbsp;&nbsp;&nbsp;&nbsp; 30:12 ~
