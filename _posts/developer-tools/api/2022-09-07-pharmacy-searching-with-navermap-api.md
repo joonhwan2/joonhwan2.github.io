@@ -1,7 +1,7 @@
 ---
 title:  "Node.js & 네이버지도로 내 근처 약국들 찾기 1"
 categories: [developer-tools, api, Node.js]
-tags: [api]
+tags: [api, nodejs]
 toc: true
 toc_sticky: true
 date: 2022-09-07
@@ -763,9 +763,90 @@ node index.js
 <br>
 <br>
 
-### 오류 내용 
+### 🚨 문제 발생 
 * 에러이벤트를 핸들링하지 않았다
 * 80번 포트가 이미 사용중이다
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### 🔑해결방법
+* axios모듈을 쓰면 try catch문으로 에러 핸들링을 해줍시다
+
+우선 try catch문을 만들어 try문 안에 api구문을 다 넣어주었고,\
+이 try문에서 에러 발생시 그 에러가 catch로 오게됨, 그 예외상황이 오면 콘솔로그로 에러상황을 찍음\
+그리고 nodejs로 api내용을 가져오는 이유는 cors보안문제를 해결하기 위함입니다.\
+`.then`이라고 작성해주면 이 api기능이 실행될때 오류를 잡을 수 있습니다. 약국정보 있는게 response고,\
+res는 이 api를 사용하는 객체에게 전달해주는 값입니다, 이제 이 api를 호출하는 대상에게\
+데이터를 남기기 위해 두번째 res변수로 `res.setHeader`를 지정합니다. 여기에 보면 `*`이 있는데 *=all\
+앞의 allow부터 쭉 읽어보면 가능한 것들은 다 허가해줘라는 뜻입니다.
+
+<br>
+
+이제 이 api에 접속한 대상에게 api데이터를 전달하기 위해 response.body 입력,\
+이렇게 되면 약국데이터를 저 경로로 접속한 컴퓨터에게 제공해줍니다.
+
+코드는 이렇게 변형되었습니다
+
+```javascript
+app.get("/pharmach_list", (req, res) => {
+    let response = null
+    try {
+        let api = async() => {
+            response = await axios.get("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire", {
+                params: {
+                    "serviceKey": "mL6hpE93V2cGEHnZNYbp2kbpZIm2IFyc9rhdh2wIaUseyjghN%2FlJSV7tSchmbL47mZsX8gNcLVtGpsTxQkstdA%3D%3D",
+                    "Q0":"서울특별시",
+                    "Q1":"강남구",
+                    "QT":"",
+                    "QN":"",
+                    "ORD":"",
+                    "pageNo":"1",
+                    "numOfRows":"1000",
+                }
+            })
+        }
+        api().then((response) =>  {
+            res.setHeader("Access-Control-Allow-Origin", "*")
+            res.json(response.data.response.body);
+        });
+    }
+    catch(e) {
+        console.log(e);
+    }
+
+    return response;
+});
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+* 80번포트가 이미 사용중 에러\
+앞서 실행중인 메모리가 콘솔에 남아있기 때문에 vscode를 껏다키면 해결됩니다.
+
+<br>
+<br>
+
+------------------- 한것을 잠깐 요약해보면 -------------------\
+`index.js`\
+express 모듈 -  웹서버 구현\
+axios 모듈 - 약국 api 불러오기
+
+(이 2가지는 벡엔드 역할을 해줍니다.)
+<br>
+<br>
+
+`index.html`\
+웹 브라우저에서 작동하는 페이지
+
+# 이어서 2부에서
 
 <br>
 <br>
@@ -793,3 +874,7 @@ node index.js
 # 참고
 ---
  '소스놀이터' &nbsp;&nbsp;&nbsp;&nbsp;   [Node Js로 네이버 약국 지도 만들기 #1 (공공데이터포털 오픈 API 활용)](https://www.youtube.com/watch?v=-sKd4NYS2sA&t=548s)
+
+ <br>
+
+ '소스놀이터' &nbsp;&nbsp;&nbsp;&nbsp;   [Node.Js로 네이버 약국 지도 만들기 #2 (express & axios 모듈, 비동기 문제 해결)](https://www.youtube.com/watch?v=FKQxItpstIk&t=1245s) &nbsp;&nbsp;&nbsp;&nbsp; 30:12 까지
