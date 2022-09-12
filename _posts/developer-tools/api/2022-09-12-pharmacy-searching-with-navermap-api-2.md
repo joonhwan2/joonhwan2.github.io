@@ -158,7 +158,7 @@ node index.js
 ```
 입력 후 localhost 들어가봅시다
 
-![Desktop View](assets/img/api/naver-map-api-pharmacy/15.png)
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/15.png)
 
 ---
 # 1 &nbsp; 폴더 만들기, 네이버api 가입, 공공데이터 포털
