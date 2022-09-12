@@ -80,7 +80,7 @@ npm install express
 
 이제 `index.js` 파일을 만들어줍시다.
 
-```javavsript
+```javascript
 let express = require("express");                           // 1
 let app = express ();                                       // 2
 let port = process.env.PORT || 80;                // 포트 80 변수 선언
