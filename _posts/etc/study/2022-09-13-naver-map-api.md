@@ -139,56 +139,6 @@ return으로 실행되어져 XY에는 값이 정해지지않은게 return됨 이
 ```
 의미  :   mapOptions라는 변수안에 저 내용들이 담긴 것
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## 3  &nbsp; 권한변경 및 변경이 잘 되었는지 확인
-
-<br>
-
-![Desktop View](/assets/img/error/npm/4.PNG)
-
-<br>
-<br>
-<br>
-
-```
-- 권한 상태값 참고
-
- Restricted : default설정값으로, 스크립트 파일을 실행할 수 없습니다.
-
- AllSigned : 신뢰할 수 있는(서명된) 스크립트 파일만 실행할 수 있습니다.
-
- RemoteSigned : 로컬에서 본인이 생성한 스크립트와, 신뢰할 수 있는(서명된) 스크립트 파일 실행할 수 있습니다.
-
- Unrestricted : 모든 스크립트 실행가능
-
- ByPass : 경고/차단 없이 모든 것을 실행가능하도록함
-
- Undefined : 권한을 설정하지 않겠음
-```
-
-<br>
-<br>
-<br>
-
-```console
-Set-ExecutionPolicy RemoteSigned
-```
-입력후 y 입력하고 엔터 
-
-```console
- get-ExecutionPolicy
- ```
-그리고 `RemoteSigned`로 변경이 잘 되었는지 확인해봅시다\
-다 되었다면 vscode나 cmd에서 npm init 입력하였을때 잘 작동할겁니다!
 
 <br>
 <br>
