@@ -260,7 +260,7 @@ git push origin master
 ![Desktop View](/assets/img/api/Heroku/12.png)
 
 잘 나오군요! 이것으로 배포까지 끝내겠습니다 ㅎ\
-https://pharmacy1234.herokuapp.com/
+https://pharmacy1234.herokuapp.com
 <br>
 <br>
 <br>
