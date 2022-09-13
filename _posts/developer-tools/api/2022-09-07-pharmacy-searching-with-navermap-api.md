@@ -737,7 +737,7 @@ app.get("/pharmach_list", (req, res) => {
 ```
 이제 axios모듈을 쓰겠다고 정의해주었으니
 ```console
-npm install express
+npm install axios
 ```
 해줍시다.
 
