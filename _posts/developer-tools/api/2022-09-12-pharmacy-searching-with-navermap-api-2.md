@@ -410,30 +410,740 @@ items 변수가 담깁니다. items변수도 선언하겠습니다 그리고 시
 
 ![Desktop View](/assets/img/api/naver-map-api-pharmacy/18.png)
 
+<br>
+<br>
+<br>
+<br>
+
 오 시도, 시군에 콘솔로그 해준 내용이 잘 나오군요!
+
 <br>
 <br>
 <br>
+
+공공데이터포털 -> 마이페이지, 잠깐 사진을 봅시다, 공백을 허용하지않군요.
+
 <br>
 <br>
 <br>
 <br>
 
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/19.png)
+
+<br>
+<br>
+<br>
+
+이제 `경상북도 xx시`, `경상남도 xx시`로 나누어지는 경우를 생각해봅시다. 공백을 제거하기 위해\
+index.html의 시도, 시구군 함수 수정합시다, 일단 2개 주석처리
+
+```javascript
+                $(document).ready(async function(){
+                    let XY = await getLocation();
+
+                    //alert("위도" + XY.lat);
+                    //alert("경도" + XY.lng);
+
+                    await naver.maps.Service.reverseGeocode({
+                        location: new naver.maps.LatLng(XY.lat, XY.lng)
+                    }, function(status, response){
+                        let result = response.result;
+                        let items = result.items;
+                        //console.log(items[0].addrdetail.sido); // 시도값
+                        //console.log(items[0].addrdetail.sigugun); // 시구군
+                        let sido_arr = items[0].addrdetail.sido.split(" ");
+                        let gubun_arr = items[0].addrdetail.sigugun.split(" ");
+
+                        let sido = "";
+                        let gubun = "";
+                        if(sido_arr.length ==1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[0];
+                        }
+                        else if(sido_arr.length > 1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[1];
+                        }
+                        console.log(sido);
+                        console.log(gugun);
+                    });
+```
+
+이렇게되면 2개의 요소를 가진 배열이 되어, 한줄에 있던 `경상남도 xx시`\
+-->\
+`경상남도`\
+`xx시`
+
+<br>
+
+그리고 새롭게 편집될 변수도 미리 정의해줍시다.\
+만약 시도가 1이라는 것은 `서울특별시` 처럼 한큐에 끝날때 시도와 구군의 첫번째 요소가됨,\
+만약 그렇지 않고 시도 어레이가 1보다 클때, 즉 공백이 하나 있을때 ex) `경상남도 xx시`
+그때 시도 어래이는 0, 그러나 구군 어레이는 첫번째 인자인 1을 적어주게 되면\
+시도와 구군이 공백이 제거된 상태로 만들어짐\
+이제 값이 제대로 잘 적혀있는지 콘솔로 시도, 구군을 확인해봅시다
+
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/20.png)
+
+<br>
+<br>
+
+오 잘 나오군요!\
+이제 index.html로 가서 Q0에는 sido변수를, Q1에는 gugun변수를 넣어줍시다\
+```javascript
+                    $.ajax({
+                        url: "/pharmach_list",
+                        type: "GET",   // GET을 통해 밑에 주석처리한 api url 부분 ?뒤부터 눈에 보이게끔 값들을 하나하나 입력해줌
+                        cache: false,  //cache는 쓰지 않을거라 false
+                        dataType: "json",    //dataType은 json으로 받겠다
+                        data: {"Q0": sido, "Q1": gugun, "QT": "", "QN": "", "ORD": "", "pageNo": "1", "numOfRows": "1000"},
+``` 
+그리고 이부분 역시 비동기이기 때문에 ajax구문 위치를 옮깁시다.
+```javascript
+                        console.log(sido);
+                        console.log(gugun);
+```
+
+<br>
+<br>
+<br>
+
+이곳 아래에 배치합시다, 여기까지의 index.html 코드는 이렇게 됩니다
+
+<br>
+<br>
+<br>
+
+```javascript
+                $(document).ready(async function(){
+                    let XY = await getLocation();
+
+                    //alert("위도" + XY.lat);
+                    //alert("경도" + XY.lng);
+
+                    await naver.maps.Service.reverseGeocode({
+                        location: new naver.maps.LatLng(XY.lat, XY.lng)
+                    }, function(status, response){
+                        let result = response.result;
+                        let items = result.items;
+                        //console.log(items[0].addrdetail.sido); // 시도값
+                        //console.log(items[0].addrdetail.sigugun); // 시구군
+                        let sido_arr = items[0].addrdetail.sido.split(" ");
+                        let gubun_arr = items[0].addrdetail.sigugun.split(" ");
+
+                        let sido = "";
+                        let gubun = "";
+                        if(sido_arr.length ==1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[0];
+                        }
+                        else if(sido_arr.length > 1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[1];
+                        }
+                        console.log(sido);
+                        console.log(gugun);
+
+                        $.ajax({
+                            url: "/pharmach_list",
+                            type: "GET",   // GET을 통해 밑에 주석처리한 api url 부분 ?뒤부터 눈에 보이게끔 값들을 하나하나 입력해줌
+                            cache: false,  //cache는 쓰지 않을거라 false
+                            dataType: "json",    //dataType은 json으로 받겠다
+                            data: {"Q0": sido, "Q1": gugun, "QT": "", "QN": "", "ORD": "", "pageNo": "1", "numOfRows": "1000"},   
+                            success: function(data) {
+                                console.log(data);
+    
+                                var mapOptions = {
+                                    center: new naver.maps.LatLng(XY.lat, XY.lng),
+                                    zoom: 14
+                                }
+    
+                                                            //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                                var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+    
+                                //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                                var map = new naver.maps.Map(mapDiv, mapOptions);
+    
+                            },
+                            error: function(request, status, error) {
+    
+                            }
+    
+                        });
+                        
+                    });
+
+                });
+                
+                async  function getLocation() {
+                    let XY = new Object();
+                    if(navigator.geolocation) {
+
+                        let promise = new Promise((resolve, rejected) => {
+                            navigator.geolocation.getCurrentPosition((position) =>{
+                                resolve(position);
+                            });
+                        });
+
+                        let position = await promise;
+                        
+                        //위도 position.coords.latitude
+                        //경도 position.coords.longitude
+                        XY.lat = position.coords.latitude;
+                        XY.lng = position.coords.longitude;
+                           
+                    }
+                    return XY;
+                }
+```
+
+<br>
+<br>
+<br>
+
+그리고 강력 새로고침을 해보면 빠밤
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/21.png)
+
+<br>
+<br>
+<br>
+
+## 마지막으로 약국이 지도에 보이게 하는 작업만 남았습니다.\
+
+https://navermaps.github.io/maps.js/docs/tutorial-digest.example.html\
+--> 중간에 `정보창` 있는 곳에 `정보 창 옵션 사용하기` 클릭\
+푸른 아이콘 클릭시 그곳의 정보를 보여주는 역할 수행합니다.
+
+<br>
+
+잠깐 localhost에서 F12 -> console -> items 클릭\
+그러면 아래와 같은 사진들이 보일 것입니다
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/22.png)
+
+<br>
+<br>
+
+총 81개의 각 배열들이 있고 제가 있는 곳은 아마 큰 번화가가 아니라 약국갯수가 이런데 다른 번화가가면 몇백개 나올 수도 있습니다.\
+복수형으로 만들어주어야하기 때문에 하나하나 엑세스하기 위해 반복문인 forEach 받읍시다, 첫번째인자로 it, 두번째 인자로 index\
+이 it변수에는 item 배열에 있는 81개가 각각 it변수에 담깁니다.\
+function 영역은 81개 전체 배열갯수만큼 반복해서 실행되는 영역
+
+<br>
+
+```javascript
+var map =
+```
+이 곳 아래에 적어줍시다
+
+이제 각 dutyName dutyAddr dutyTel1 dutyTime으로 변수 받읍시다\
+그리고 https://navermaps.github.io/maps.js/docs/tutorial-infowindow-options.example.html\
+이곳에서 marker부터 끝까지 복사하여 그 아래에 붙여넣기, 그리고 marker는 let 변수로 선언해줍시다.\
+이제 index.html을 보면 마커가 표시될 위치(position)이 있는데 position이 cityhall이라는 변수로 되있음\
+예제를 보면 cityhall이 있는 내용이 있습니다 그 부분 복사하여 dutyTime 아래에 넣읍시다. 근데 우리는 약국을 하니까\
+let cityhall --> let pharmacy_location 바꿔줍시다 그리고 position도 바꿔주고 아래에\
+
+```javascript
+var contentString = [
 ---
-# 2 &nbsp; 공공데이터 포털
 ---
+---
+]
+```
+
+--->
+
+```javascript
+                                    var contentString = [
+                                            '<div class="iw_inner">',
+                                            '   <h3>'+dutyName+'</h3>',
+                                            '   <p>'+dutyAddr+'<br />', 
+                                            '       '+dutyTel1+'<br />',
+                                            '       '+dutyTime,
+                                            '   </p>',
+                                            '</div>'
+                                        ].join('');
+```
+참 이곳에 img src 한줄 지웁시다 우린 사진이 필요없으니
+
+<br>
+<br>
+<br>
+
+그리고 localhost에서 F12를 누릅시다
+
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/23.png)
+
+<br>
+<br>
+
+사진에 보면 행으로 번호가 0~16으로 있는데 이중에 아무거나 누르면 자세한 정보가 나오는데 그 안에 이 2개가 있을겁니다
+`wgs84Lat` `wgs84Lon` 그거를 37.xxx  126.xxx 대신에 앞에 it.을 붙여 합쳐서 각각 고칩시다
+
+<br>
+<br>
+<br>
+
+여기까지의 index.html 코드는 이렇습니다.
+
+```html
+<html>
+    <head>     
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=b3cui5r9yl&amp;submodules=geocoder"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>    
+        <body>
+            <div style="margin-top: 20px; margin-bottom: 10px; font-weight: bold;">
+                약국 지도💊
+            </div>
+            <div id="map" style="width:100%; height:80%">
+
+            </div>
+        </body>
+            <script>
+                $(document).ready(async function(){
+                    let XY = await getLocation();
+
+                    //alert("위도" + XY.lat);
+                    //alert("경도" + XY.lng);
+
+                    await naver.maps.Service.reverseGeocode({
+                        location: new naver.maps.LatLng(XY.lat, XY.lng)
+                    }, function(status, response){
+                        let result = response.result;
+                        let items = result.items;
+                        //console.log(items[0].addrdetail.sido); // 시도값
+                        //console.log(items[0].addrdetail.sigugun); // 시구군
+                        let sido_arr = items[0].addrdetail.sido.split(" ");
+                        let gubun_arr = items[0].addrdetail.sigugun.split(" ");
+
+                        let sido = "";
+                        let gubun = "";
+                        if(sido_arr.length ==1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[0];
+                        }
+                        else if(sido_arr.length > 1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[1];
+                        }
+                        console.log(sido);
+                        console.log(gugun);
+
+                        $.ajax({
+                            url: "/pharmach_list",
+                            type: "GET",   // GET을 통해 밑에 주석처리한 api url 부분 ?뒤부터 눈에 보이게끔 값들을 하나하나 입력해줌
+                            cache: false,  //cache는 쓰지 않을거라 false
+                            dataType: "json",    //dataType은 json으로 받겠다
+                            data: {"Q0": sido, "Q1": gugun, "QT": "", "QN": "", "ORD": "", "pageNo": "1", "numOfRows": "1000"},   
+                            success: function(data) {
+                                console.log(data);
+    
+                                var mapOptions = {
+                                    center: new naver.maps.LatLng(XY.lat, XY.lng),
+                                    zoom: 14
+                                }
+    
+                                                            //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                                var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+    
+                                //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                                var map = new naver.maps.Map(mapDiv, mapOptions);
+                                
+                                data.items.item.forEach(function(it, index){
+                                    let dutyName = it.dutyName; //약국명
+                                    let dutyAddr = it.dutyAddr; //주소
+                                    let dutyTel1 = it.dutyTel1; //전번
+
+                                    let dutyTime = ""; //업무시간
+
+                                    let pharmacy_location = new naver.maps.LatLng(it.wgs84Lat, it.wgs84Lon)
 
 
+                                    
+                                    let marker = new naver.maps.Marker({
+                                        map: map,
+                                        position: pharmacy_location
+                                    });
+                                
+                                    var contentString = [
+                                            '<div class="iw_inner">',
+                                            '   <h3>'+dutyName+'</h3>',
+                                            '   <p>'+dutyAddr+'<br />', 
+                                            '       '+dutyTel1+'<br />',
+                                            '       '+dutyTime,
+                                            '   </p>',
+                                            '</div>'
+                                        ].join('');
+                                        
+                                        var infowindow = new naver.maps.InfoWindow({
+                                            content: contentString,
+                                            maxWidth: 140,
+                                            backgroundColor: "#eee",
+                                            borderColor: "#2db400",
+                                            borderWidth: 5,
+                                            anchorSize: new naver.maps.Size(30, 30),
+                                            anchorSkew: true,
+                                            anchorColor: "#eee",
+                                            pixelOffset: new naver.maps.Point(20, -20)
+                                        });
+                                        
+                                naver.maps.Event.addListener(marker, "click", function(e) {
+                                    if (infowindow.getMap()) {
+                                        infowindow.close();
+                                    } else {
+                                        infowindow.open(map, marker);
+                                    }
+                                });
+
+
+
+
+
+
+                                }); 
+
+                            },
+                            error: function(request, status, error) {
+    
+                            }
+    
+                        });
+                        
+                    });
+
+                });
+                
+                async  function getLocation() {
+                    let XY = new Object();
+                    if(navigator.geolocation) {
+
+                        let promise = new Promise((resolve, rejected) => {
+                            navigator.geolocation.getCurrentPosition((position) =>{
+                                resolve(position);
+                            });
+                        });
+
+                        let position = await promise;
+                        
+                        //위도 position.coords.latitude
+                        //경도 position.coords.longitude
+                        XY.lat = position.coords.latitude;
+                        XY.lng = position.coords.longitude;
+                           
+                    }
+                    return XY;
+                }
+            </script>
+</html>
+```
+
+그리고 localhost에서 강력 새로고침하여 확인해보면  
 
 <br>
 
-
-
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/24.png)
 
 <br>
 
+약국은 잘 뜨는데 보이는 폭이 좁아서 글자가 좀 잘리는 것 같군요.\
+폭 maxWidth 140 -> 440으로 고칩시다 그리고 요일별 영업시간 번호 등 추가해줍시다.
+
+<br>
+
+오 이제 잘나옵니다! 
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/25.png)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+여기까지의 `index.html`와 `index.js` 코드를 공개할테니 잘 안되시는 분들은 비교해보시고 수정해보세요ㅎ
+
+<br>
+<br>
+<br>
+
+## index.html
+
+```html
+<html>
+    <head>     
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=아이디 &amp;submodules=geocoder"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>    
+        <body>
+            <div style="margin-top: 20px; margin-bottom: 10px; font-weight: bold;">
+                약국 지도💊
+            </div>
+            <div id="map" style="width:100%; height:80%">
+
+            </div>
+        </body>
+            <script>
+                $(document).ready(async function(){
+                    let XY = await getLocation();
+
+                    //alert("위도" + XY.lat);
+                    //alert("경도" + XY.lng);
+
+                    await naver.maps.Service.reverseGeocode({
+                        location: new naver.maps.LatLng(XY.lat, XY.lng)
+                    }, function(status, response){
+                        let result = response.result;
+                        let items = result.items;
+                        //console.log(items[0].addrdetail.sido); // 시도값
+                        //console.log(items[0].addrdetail.sigugun); // 시구군
+                        let sido_arr = items[0].addrdetail.sido.split(" ");
+                        let gubun_arr = items[0].addrdetail.sigugun.split(" ");
+
+                        let sido = "";
+                        let gubun = "";
+                        if(sido_arr.length ==1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[0];
+                        }
+                        else if(sido_arr.length > 1) {
+                            sido = sido_arr[0];
+                            gugun = gubun_arr[1];
+                        }
+                        console.log(sido);
+                        console.log(gugun);
+
+                        $.ajax({
+                            url: "/pharmach_list",
+                            type: "GET",   // GET을 통해 밑에 주석처리한 api url 부분 ?뒤부터 눈에 보이게끔 값들을 하나하나 입력해줌
+                            cache: false,  //cache는 쓰지 않을거라 false
+                            dataType: "json",    //dataType은 json으로 받겠다
+                            data: {"Q0": sido, "Q1": gugun, "QT": "", "QN": "", "ORD": "", "pageNo": "1", "numOfRows": "1000"},   
+                            success: function(data) {
+                                console.log(data);
+    
+                                var mapOptions = {
+                                    center: new naver.maps.LatLng(XY.lat, XY.lng),
+                                    zoom: 20
+                                }
+    
+                                                            //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                                var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+    
+                                //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                                var map = new naver.maps.Map(mapDiv, mapOptions);
+                                
+                                data.items.item.forEach(function(it, index){
+                                    let dutyName = it.dutyName; //약국명
+                                    let dutyAddr = it.dutyAddr; //주소
+                                    let dutyTel1 = it.dutyTel1; //전번
+
+                                    let dutyTime = ""; //업무시간
+
+                                    
+                                    if(it.dutyTime1s && it.dutyTime1c) {
+                                        dutyTime += "월요일: " + it.dutyTime1s + " ~ " + it.dutyTime1c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime2s && it.dutyTime2c) {
+                                        dutyTime += "화요일: " + it.dutyTime2s + " ~ " + it.dutyTime2c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime3s && it.dutyTime3c) {
+                                        dutyTime += "수요일: " + it.dutyTime3s + " ~ " + it.dutyTime3c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime4s && it.dutyTime4c) {
+                                        dutyTime += "목요일: " + it.dutyTime4s + " ~ " + it.dutyTime4c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime5s && it.dutyTime5c) {
+                                        dutyTime += "금요일: " + it.dutyTime5s + " ~ " + it.dutyTime5c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime6s && it.dutyTime6c) {
+                                        dutyTime += "토요일: " + it.dutyTime6s + " ~ " + it.dutyTime6c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime7s && it.dutyTime7c) {
+                                        dutyTime += "일요일: " + it.dutyTime7s + " ~ " + it.dutyTime7c + "<br>";
+                                    }
+    
+                                    if(it.dutyTime8s && it.dutyTime8c) {
+                                        dutyTime += "공휴일"; + it.dutyTime8s + " ~ " + it.dutyTime8c + "<br>";
+                                    }
+                                    
 
 
+                                    let pharmacy_location = new naver.maps.LatLng(it.wgs84Lat, it.wgs84Lon)
+
+
+                                    
+                                    let marker = new naver.maps.Marker({
+                                        map: map,
+                                        position: pharmacy_location
+                                    });
+                                
+                                    var contentString = [
+                                            '<div class="iw_inner">',
+                                            '   <h3>'+dutyName+'</h3>',
+                                            '   <p>'+dutyAddr+'<br />', 
+                                            '       '+dutyTel1+'<br />',
+                                            '       '+dutyTime,
+                                            '   </p>',
+                                            '</div>'
+                                        ].join('');
+                                        
+                                        var infowindow = new naver.maps.InfoWindow({
+                                            content: contentString,
+                                            maxWidth: 440,
+                                            backgroundColor: "#eee",
+                                            borderColor: "#2db400",
+                                            borderWidth: 5,
+                                            anchorSize: new naver.maps.Size(30, 30),
+                                            anchorSkew: true,
+                                            anchorColor: "#eee",
+                                            pixelOffset: new naver.maps.Point(20, -20)
+                                        });
+                                        
+                                naver.maps.Event.addListener(marker, "click", function(e) {
+                                    if (infowindow.getMap()) {
+                                        infowindow.close();
+                                    } else {
+                                        infowindow.open(map, marker);
+                                    }
+                                });
+
+
+
+
+
+
+                                }); 
+
+                            },
+                            error: function(request, status, error) {
+    
+                            }
+    
+                        });
+                        
+                    });
+
+                });
+                
+                async  function getLocation() {
+                    let XY = new Object();
+                    if(navigator.geolocation) {
+
+                        let promise = new Promise((resolve, rejected) => {
+                            navigator.geolocation.getCurrentPosition((position) =>{
+                                resolve(position);
+                            });
+                        });
+
+                        let position = await promise;
+                        
+                        //위도 position.coords.latitude
+                        //경도 position.coords.longitude
+                        XY.lat = position.coords.latitude;
+                        XY.lng = position.coords.longitude;
+                           
+                    }
+                    return XY;
+                }
+            </script>
+</html>
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## index.js
+
+<br>
+<br>
+
+```javascript
+let express = require("express");  
+let axios = require("axios");
+
+let app = express ();                                       
+let port = process.env.PORT || 80;                
+app.use(express.static("public_html"));                     
+
+app.listen(port,function(){                                  
+    console.log("HTML 서버 시작됨")
+})
+
+app.get("/pharmach_list", (req, res) => {
+
+        let api = async() => {
+            let response = null
+            
+            try {
+            response = await axios.get("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire", {
+                params: {
+                    "serviceKey": "mL6hpE93V2cGEHnZNYbp2kbpZIm2IFyc9rhdh2wIaUseyjghN/lJSV7tSchmbL47mZsX8gNcLVtGpsTxQkstdA==",
+                    "Q0":req.query.Q0,
+                    "Q1":req.query.Q1,
+                    "QT":req.query.QT,
+                    "QN":req.query.QN,
+                    "ORD":req.query.ORD,
+                    "pageNo":req.query.pageNo,
+                    "numOfRows":req.query.numOfRows
+                }
+            })
+        }
+
+
+
+
+
+
+        catch(e) {
+            console.log(e);
+        }
+
+
+
+
+
+
+
+            return response;
+        }
+        api().then((response) =>  {
+            res.setHeader("Access-Control-Allow-Origin", "*")
+            res.json(response.data.response.body);
+        });
+});
+
+```
 <br>
 <br>
 <br>
