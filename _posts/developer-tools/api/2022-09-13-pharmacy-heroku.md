@@ -187,7 +187,15 @@ npm install
 ```
 이제 `node index.js` 이어서 입력후 주소창에 http://localhost:5000/ 쳐봅시다.
 저는 잘 나오는 군요!\
-참! 이거 휴대폰으로 지도 보면 확대할수록 글자 크기가 작아져서 저는 zoom 크기를 14에서 19로 수정하였습니다.
+참! 이거 휴대폰으로 지도 보면 확대할수록 글자 크기가 작아져서 해줘야하는게 있습니다
+
+<br>
+
+index.html로 갑시다  거기서 <head> </head>\
+이 사이에 이 문장 추가하면 됩니다
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
 
 <br>
 <br>
@@ -261,6 +269,10 @@ git push origin master
 
 잘 나오군요! 이것으로 배포까지 끝내겠습니다 ㅎ\
 https://pharmacy1234.herokuapp.com
+
+
+
+
 <br>
 <br>
 <br>
