@@ -196,6 +196,8 @@ index.html로 갑시다  거기서 <head> </head>\
 ```
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
+이 문장을 추가해주면 휴대폰에서도 노트북에서 보는것과 같은 크기로 볼 수 있습니다.\
+만약 이걸 추가 안할 시 휴대폰에서 확대할수록 크기는 더욱 작아집니다.
 
 <br>
 <br>
