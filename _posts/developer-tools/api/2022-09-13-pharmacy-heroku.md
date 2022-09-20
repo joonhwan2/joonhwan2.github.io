@@ -124,7 +124,7 @@ git clone 해당URL
 
 <br>
 
-이제 저 안에 `index.js`, `public_html 폴더`, `package.json` 복붙해줍시다
+이제 저 안에 `index.js`, `public_html 폴더`, `package.json`, `public 폴더` 복붙해줍시다
 
 그리고 package.json 수정해줍시다.
 
