@@ -115,7 +115,7 @@ C:\HTML_SERVER_TEST>
 저 경로에서 
 
 ```console
-git clone 해당URL
+git clone Heroku에 있는 URL
 ```
 입력합시다
 
