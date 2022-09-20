@@ -1613,6 +1613,10 @@ app.get ("/pharmach_list", (req, res) =>  {
 
  '소스놀이터' &nbsp;&nbsp;&nbsp;&nbsp;   [Node.Js로 네이버 약국 지도 만들기 #3 (LAST) (data.go.kr 오픈 API)](https://www.youtube.com/watch?v=XC8vBN_WhYs) &nbsp;&nbsp;&nbsp;&nbsp;
 
+<br>
+
+http://expressjs.com/ko/starter/static-files.html
+
  <br>
  <br>
  <br>
@@ -1624,3 +1628,4 @@ app.get ("/pharmach_list", (req, res) =>  {
 # 도와주신 분들
 ---
 `유튜브` - 소스놀이터
+`오중호랑이` - https://ojtiger.com/
