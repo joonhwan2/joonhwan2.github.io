@@ -1213,6 +1213,7 @@ var map = new naver.maps.Map(mapDiv, mapOptions);
 
 무슨 말이냐면 `index.js`에 코드에 static으로 img 디렉터리를 지정하거나\
 리소스에 접근했을때 보내주는 코드가 없기 때문입니다.\
+(이 부분은 뀰님께서 도와주셔서 해결할 수 있었습니다, 다시 한번 감사드립니다.)\
 이제 `index.js`로 가서 문장 하나 추가해주고 포트번호 80 -> 5000 변경해줍시다
 
 ```javascript
@@ -1627,5 +1628,14 @@ http://expressjs.com/ko/starter/static-files.html
 ---
 # 도와주신 분들
 ---
+
+'뀰' - https://github.com/devlaq 
+
+<br> 
+
 `유튜브` - 소스놀이터
+
+<br>
+
 `오중호랑이` - https://ojtiger.com/
+
