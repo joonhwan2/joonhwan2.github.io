@@ -1144,6 +1144,444 @@ app.get("/pharmach_list", (req, res) => {
 });
 
 ```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+2022 09 19일 갑자기 내 위치를 나타내는 커스텀 마커가 추가하고싶어졌다. 그리하여 코드를 변형시켰다\
+`index.html` 로 갑시다.
+
+<br>
+<br>
+
+```javascript
+var mapOptions = {
+  center: new naver.maps.LatLng(XY.lat, XY.lng),
+zoom: 14,
+
+}
+var map = new naver.maps.Map(mapDiv, mapOptions);
+```
+
+<br>
+
+이문장 바로 아래에 이 문장들을 추가합시다
+
+```javascript
+                                var position = new naver.maps.LatLng(XY.lat, XY.lng);
+
+                                var map = new naver.maps.Map('map', {
+                                    center: position,
+                                    zoom: 14
+                                });
+
+                                var markerOptions = {
+                                    position: position,
+                                    map: map,
+                                    icon: {
+                                        content: [
+                                        '<img src="/img/sugar.jpg" style="position:absolute; top:2px; left:2px; width:32px; height:32px; object-fit:cover; object-position:center center; border-radius:50%; z-index:6">',
+                                        '<img src="/map-pin-afterUser.svg" style="position;absolute; top:0; left:0; z-index:5">',
+                                        ].join(''),
+
+                                        anchor: new naver.maps.Point(25, 26)
+                                    }
+                                };
+                                var marker = new naver.maps.Marker(markerOptions);                            
+
+
+
+
+                            var circle = new naver.maps.Circle({
+                                map: map,
+                                center: new naver.maps.LatLng(XY.lat, XY.lng),
+                                radius: 50,
+                                fillColor: 'red',
+                                fillOpacity: 0.2
+                            });
+```
+
+<br>
+
+그 후 저의 경우에는 public 폴더를 만들어 그안에 img 폴더, 그안에 `sugar.jpg`를 저장하였습니다.\
+자 이상태로 바로 node index.js 실행하면 오류나서 커스텀 마커 안나옵니다
+
+<br>
+
+무슨 말이냐면 `index.js`에 코드에 static으로 img 디렉터리를 지정하거나\
+리소스에 접근했을때 보내주는 코드가 없기 때문입니다.\
+이제 `index.js`로 가서 문장 하나 추가해주고 포트번호 80 -> 5000 변경해줍시다
+
+```javascript
+app.use(express.static('public'));
+```
+
+<br>
+그러면 사진처럼 빰!
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/26.png)
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+자 여기까지의 파일트리와 `index.js`와 `index.html` 코드는 이렇습니다.
+
+<br>
+<br>
+<br>
+
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/27.png)
+
+<br>
+<br>
+<br>
+<br>
+
+### index.js
+
+<br>
+
+```javascript
+let express = require("express");
+// express모듈을 선언   +   어떤 모듈을 쓸건지 require로 지정   =    이제 이 구문을 통해 express모듈이 사용 가능한 상태가 됨
+
+let axios = require("axios");
+// axios 모듈을 사용하겠다
+
+let app = express ();
+// app 이라는 변수 하나를 더 선언하여 express객체를 할당하자     이제 이 구문을 통해 app이라는 변수는 express 모듈을 가르키게 됨
+
+let port = process.env.PORT || 5000;
+
+
+app.use(express.static('public'));
+// 커스텀 마커를 사용하기 위해 public 폴더 안 파일과 localhost:5000 연동되게 해줌
+
+app.use(express.static("public_html"));
+// express의 use 메소드를 선언하고 express.static이라고 괄호 사이에 입력한 후  public_html 로 지정하겠다
+// 이제 public_html 폴더 아래에 있는 모든 파일들은 app.use 즉 express 모듈의 웹서버가 구동되게함
+
+app.listen(port,function(){
+    console.log("HTML 서버 시작됨")
+})
+// express 서비스가 작동될 포트 지정 보통 80번 많이씀 그리고 포트 열렸는지 확인해주기위해 콘솔을 적음
+// app.listen에 port를 사용해주고 대신 위에 포트 80변수를 선언해주자 이건 사용되기 앞서 그 이전에 설정되야함
+// 이제 위로 가서 포트 80 변수를 선언해주자  process.env.PORT는 환경설정 내용이다
+
+
+
+//현재 app.use를 사용해 웹서버를 열은 상황이다 근데
+//한페이지만 이름을 pharmach_list따로 열어보겠다 
+//이 경우는 app.get으로 가능하다
+//그리고 여기 접속했을때 어떤 데이터를 보낼지 결정가능
+
+/////////
+
+////////
+
+
+app.get ("/pharmach_list", (req, res) =>  {
+        let api = async() => {
+            let response = null;
+
+            try {
+            response = await axios.get("http://apis.data.go.kr/B552657/ErmctInsttInfoInqireService/getParmacyListInfoInqire", {
+                params: {
+                        "serviceKey": "mL6hpE93V2cGEHnZNYbp2kbpZIm2IFyc9rhdh2wIaUseyjghN/lJSV7tSchmbL47mZsX8gNcLVtGpsTxQkstdA==",
+                        "Q0": req.query.Q0,
+                        "Q1": req.query.Q1,
+                        "QT": req.query.QT,
+                        "QN": req.query.QN,
+                        "ORD": req.query.ORD,
+                        "pageNo": req.query.pageNo,
+                        "numOfRows": req.query.numOfRows    //  1000개의 데이터를 1장에 한번에 받겠다 
+                    }
+                })
+            }
+
+
+
+
+
+
+
+
+            catch(e) {
+                console.log(e);
+            }
+
+
+
+
+
+
+            
+            return response;
+        }
+
+
+        api().then((response) => {
+            res.setHeader("Access-Control-Allow-Origin", "*");    // * = all,   access control 근원(origin)으로 가능한 것들은 전부 허용해줘라    이렇게 세팅시 cors 로 인한 문제 해결 가능
+            res.json(response.data.response.body); // data.response.body가 위에 보이는 약국데이터다, 이를 pharmach_list 경로로 접근하는 컴퓨터에게 데이터 제공
+        });  
+});
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+### index.html
+
+<br>
+
+```html
+<html>
+    <head>     <!-- script type는 자바스크립트, src를 넣어 소스는 다른 곳에 있다고 지정 ex) 네이버 open api에 있는 정보-->
+        <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xeulgqnc95&amp;submodules=geocoder"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>    
+        <body>
+            <div style="margin-top: 20px; margin-bottom: 10px; font-weight: bold;">
+                약국 지도💊
+            </div>
+            <div id="map" style="width:100%; height:80%">
+
+            </div>
+        </body>
+        <script>
+            $(document).ready(async function(){
+                let XY = await getLocation();
+                //alert("위도" + XY.lat);
+                //alert("경도" + XY.lng);
+
+                // reverseGeocode는 비동기형이라 await 추가
+                await naver.maps.Service.reverseGeocode({
+                    location: new naver.maps.LatLng(XY.lat, XY.lng)
+                },function(status, response){
+                    let result = response.result;
+                    let items = result.items;
+                    //console.log(items[0].addrdetail.sido);
+                    //console.log(items[0].addrdetail.sigugun);
+                    let sido_arr = items[0].addrdetail.sido.split(" ");
+                    let gubun_arr = items[0].addrdetail.sigugun.split(" ");
+
+                    let sido = "";
+                    let gubun = "";
+                    if(sido_arr.length ==1) {
+                        sido = sido_arr[0];
+                        gugun = gubun_arr[0]
+                    }
+
+
+                    else if(sido_arr.length > 1) {
+                        sido = sido_arr[0];
+                        gugun = sido_arr[1]
+                    }
+                    console.log(sido);
+                    console.log(gugun);
+
+
+                    $.ajax({
+                        url: "/pharmach_list",
+                        type: "GET",   // GET을 통해 밑에 주석처리한 api url 부분 ?뒤부터 눈에 보이게끔 값들을 하나하나 입력해줌
+                        cache: false,  //cache는 쓰지 않을거라 false
+                        dataType: "json",    //dataType은 json으로 받겠다
+                        data: {"Q0": sido, "Q1": gugun, "QT": "", "QN": "", "ORD": "", "pageNo": "1", "numOfRows": "1000"},   
+                        success: function(data) {
+                            console.log(data);
+    
+    
+                            //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+                            var mapDiv = document.getElementById('map'); // 'map'으로 선언해도 동일
+    
+                            //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+                            var mapOptions = {
+                                center: new naver.maps.LatLng(XY.lat, XY.lng),
+                                zoom: 14
+                            }
+                            var map = new naver.maps.Map(mapDiv, mapOptions);
+
+//////////////////////////////////////////////////////////////////////////////////////////
+                                var position = new naver.maps.LatLng(XY.lat, XY.lng);
+
+                                var map = new naver.maps.Map('map', {
+                                    center: position,
+                                    zoom: 14
+                                });
+
+                                var markerOptions = {
+                                    position: position,
+                                    map: map,
+                                    icon: {
+                                        content: [
+                                        '<img src="/img/sugar.jpg" style="position:absolute; top:2px; left:2px; width:32px; height:32px; object-fit:cover; object-position:center center; border-radius:50%; z-index:6">',
+                                        '<img src="/map-pin-afterUser.svg" style="position;absolute; top:0; left:0; z-index:5">',
+                                        ].join(''),
+
+                                        anchor: new naver.maps.Point(25, 26)
+                                    }
+                                };
+                                var marker = new naver.maps.Marker(markerOptions);                            
+
+
+
+
+                            var circle = new naver.maps.Circle({
+                                map: map,
+                                center: new naver.maps.LatLng(XY.lat, XY.lng),
+                                radius: 50,
+                                fillColor: 'red',
+                                fillOpacity: 0.2
+                            });
+                            
+ //////////////////////////////////////////////////////////////////////////////
+                            
+                            data.items.item.forEach(function(it, index){
+                                let dutyName = it.dutyName;
+                                let dutyAddr = it.dutyAddr;
+                                let dutyTel1 = it.dutyTel1;
+
+                                let dutyTime = "";
+                                if(it.dutyTime1s && it.dutyTime1c) {
+                                    dutyTime += "월요일: " + it.dutyTime1s + " ~ " + it.dutyTime1c + "<br>";
+                                }
+
+                                if(it.dutyTime2s && it.dutyTime2c) {
+                                    dutyTime += "화요일: " + it.dutyTime2s + " ~ " + it.dutyTime2c + "<br>";
+                                }
+
+                                if(it.dutyTime3s && it.dutyTime3c) {
+                                    dutyTime += "수요일: " + it.dutyTime3s + " ~ " + it.dutyTime3c + "<br>";
+                                }
+
+                                if(it.dutyTime4s && it.dutyTime4c) {
+                                    dutyTime += "목요일: " + it.dutyTime4s + " ~ " + it.dutyTime4c + "<br>";
+                                }
+
+                                if(it.dutyTime5s && it.dutyTime5c) {
+                                    dutyTime += "금요일: " + it.dutyTime5s + " ~ " + it.dutyTime5c + "<br>";
+                                }
+
+                                if(it.dutyTime6s && it.dutyTime6c) {
+                                    dutyTime += "토요일: " + it.dutyTime6s + " ~ " + it.dutyTime6c + "<br>";
+                                }
+
+                                if(it.dutyTime7s && it.dutyTime7c) {
+                                    dutyTime += "일요일: " + it.dutyTime7s + " ~ " + it.dutyTime7c + "<br>";
+                                }
+
+                                if(it.dutyTime8s && it.dutyTime8c) {
+                                    dutyTime += "공휴일"; + it.dutyTime8s + " ~ " + it.dutyTime8c + "<br>";
+                                }
+
+
+                                let pharmacy_location = new naver.maps.LatLng(it.wgs84Lat, it.wgs84Lon)
+
+                                    let marker = new naver.maps.Marker({
+                                        map: map,
+                                        position: pharmacy_location
+                                    });
+                                
+                                    var contentString = [
+                                            '<div class="iw_inner">',
+                                            '   <h3>'+dutyName+'</h3>',
+                                            '   <p>'+dutyAddr+'<br />', 
+                                            '       '+dutyTel1+'<br />',
+                                            '       '+dutyTime,
+                                            '   </p>',
+                                            '</div>'
+                                        ].join('');
+                                    
+                                    var infowindow = new naver.maps.InfoWindow({
+                                        content: contentString,
+                                        maxWidth: 440,
+                                        backgroundColor: "#eee",
+                                        borderColor: "#2db400",
+                                        borderWidth: 5,
+                                        anchorSize: new naver.maps.Size(30, 30),
+                                        anchorSkew: true,
+                                        anchorColor: "#eee",
+                                        pixelOffset: new naver.maps.Point(20, -20)
+                                    });
+                                    
+                                    naver.maps.Event.addListener(marker, "click", function(e) {
+                                        if (infowindow.getMap()) {
+                                            infowindow.close();
+                                        } else {
+                                            infowindow.open(map, marker);
+                                        }
+                                    });
+
+
+
+
+
+
+
+
+
+
+
+
+                                    
+                                    });
+    
+                        },
+                        error: function(request, status, error) {
+                            
+                        }
+                    });
+
+
+                });
+
+
+            });
+
+            // geolocation은 gps와 관련된 객체, 이 객체가 존재하면 getLocation 실행함
+            // getCurrentPosition 사용시 현재 위치를 알 수 있다, position 이라는 객체를 통해 현 위치 파악
+            async function getLocation() {
+                let XY = new Object();
+                if(navigator.geolocation) {
+
+                    
+                    let promise = new Promise((resolve, rejected) => {
+                        navigator.geolocation.getCurrentPosition((position) => {
+                            resolve(position);
+                        });
+                    });
+
+                    let position = await promise;
+
+                    //위도 position.coords.latitude 
+                    //경도 position.coords.longitude 
+                    XY.lat = position.coords.latitude
+                    XY.lng = position.coords.longitude
+  
+                }
+                return XY;     
+            }        
+        </script>    
+</html>
+```
+
+<br>
+<br>
+<br>
+
 <br>
 <br>
 <br>
@@ -1174,3 +1612,15 @@ app.get("/pharmach_list", (req, res) => {
  <br>
 
  '소스놀이터' &nbsp;&nbsp;&nbsp;&nbsp;   [Node.Js로 네이버 약국 지도 만들기 #3 (LAST) (data.go.kr 오픈 API)](https://www.youtube.com/watch?v=XC8vBN_WhYs) &nbsp;&nbsp;&nbsp;&nbsp;
+
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+
+---
+# 도와주신 분들
+---
+`유튜브` - 소스놀이터
