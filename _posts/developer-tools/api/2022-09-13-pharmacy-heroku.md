@@ -267,7 +267,7 @@ git add .
 git commit -m "아무거나"
 git push origin master
 ```
-![Desktop View](/assets/img/api/Heroku/12.png)
+![Desktop View](/assets/img/api/naver-map-api-pharmacy/26.png)
 
 노트북에서는 잘 나오군요! 휴대폰으로도 잘 나오는지 확인해봅시다! 이것으로 배포까지 끝내겠습니다 ㅎ\
 https://pharmacy1234.herokuapp.com
