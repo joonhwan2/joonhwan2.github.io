@@ -183,7 +183,8 @@ let port = process.env.PORT || 80;
 그 후 깃클론으로 폴더가 생성된 경로에서 아래 명령어 입력합시다\
 저의 경우는 C:\HTML_SERVER_TEST\joonhwan-test 이곳에서 실행합니다
 ```console
-npm install
+npm install express
+npm install axios
 ```
 이제 `node index.js` 이어서 입력후 주소창에 http://localhost:5000/ 쳐봅시다.
 저는 잘 나오는 군요!\
